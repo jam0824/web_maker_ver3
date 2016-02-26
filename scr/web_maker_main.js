@@ -22,6 +22,10 @@ var sel_wnd            = new Array();
 var dataSet            = new Array();  //BG,Char,SEのURL、ロードフラグ保持用
 var backLog            = "";           //バックログ保管用
 
+var env                = enchant.ENV.BROWSER;
+var audio              = null;         //iOS用audio
+var isAudioLoadStart   = false;        //trueになったらタッチイベントでBGMロード
+
 //保存に使う変数群
 var game_status = {
     event_flag    : 0,
@@ -45,8 +49,7 @@ window.onload = function () {
     game = new Core(GAME_WIDTH, GAME_HEIGHT);
     game.fps = DEFAULT_FPS;
     game.touched = false;
-
-
+    
     //Load and fix scenario data
     data = dataLoad();
 
@@ -84,13 +87,22 @@ window.onload = function () {
     dataSet = initDataLoad(dataSet);	     //先行ロード
     loadOption();
     
-
+    
     var box = document.getElementById("enchant-stage");
+
+    //iOS音声用のタッチイベント
+    box.addEventListener('touchstart', function (e) {
+        if ((env == "mobilesafari") && (isAudioLoadStart)) {
+            mobileeSafariBGMLoad(game_status['bgm']);
+            isAudioLoadStart = false;
+        }
+    });
     box.addEventListener("mousedown", function (e) {
         var str = "";
         // 押しているボタンに応じて処理を切り替える
         // ここで2の時に独自のコンテキストメニューを表示したりする
         switch (e.button) {
+           
             case 2 :
                 displayOption();
                 break;
@@ -470,9 +482,22 @@ function transrateCommand(command) {
     return command;
 }
 
-function isSafari() {
-    var strUA = navigator.userAgent.toLowerCase();
-    return ( (strUA.indexOf("safari") != -1) && (strUA.indexOf("chrome") == -1) );
+/******************
+ * iOS用BGM読み込み
+ * @param {type} bgmPath
+ * @returns {undefined}
+ */
+function mobileeSafariBGMLoad(bgmPath) {
+    audio = new Audio(bgmPath);
+    audio.load();
+    audio.volume = game_status['bgm_volume'];
+    audio.addEventListener('canplaythrough', function () {
+        audio.play();
+    }, false);
+    audio.addEventListener("ended", function () {
+        audio.play();
+    }, false);
+
 }
 
 

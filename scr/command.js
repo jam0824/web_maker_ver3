@@ -394,8 +394,23 @@ function sePlay(d_cmd, game, game_status, dataSet) {
 
 //////////////////////////////////////////BGMコマンド
 function bgmStart(d_cmd) {
-    game_status['bgm'] = d_cmd[BGM_PATH];
-    if (game_status['sound_mode']) {  
+    
+    
+    if((env == "mobilesafari") && (game_status['sound_mode'])){
+        game_status['bgm'] = d_cmd[BGM_PATH];
+        //再生中のbgmはとめる
+        if(audio != null) {
+            audio.pause();
+        }
+        isAudioLoadStart = true;
+        return;
+    }
+    if (game_status['sound_mode']) {
+        //再生中のbgmがあったら止める
+        if(game.assets[game_status['bgm']] != null){
+            game.assets[game_status['bgm']].pause();
+        }
+        game_status['bgm'] = d_cmd[BGM_PATH];
         game.load(d_cmd[BGM_PATH], function () {
             //ロードが終わった時の処理
             
@@ -412,8 +427,12 @@ function bgmStart(d_cmd) {
 
 ///////////////////////////////////////////再生を停止
 function bgmStop(d_cmd) {
-    game.assets[game_status['bgm']].pause();
-    //document.getElementById("bgm").pause();
+    if (env == "mobilesafari") {
+        audio.pause();
+    } else {
+        game.assets[game_status['bgm']].pause();
+        //document.getElementById("bgm").pause();
+    }
     return;
 }
 
