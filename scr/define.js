@@ -4,11 +4,16 @@
  * and open the template in the editor.
  */
 
-var GAME_WIDTH         = 640;      //Game width
-var GAME_HEIGHT        = 957;      //Game height
-var GAME_MAIN_HEIGHT   = 700;      //Game screen height
-var GAME_MSG_WND_Y     = 700;      //Massage window position
-var GAME_MSG_WND_HEIGHT= 200;      //Massage window height
+var GAME_WIDTH         = 640;      //ゲームの幅
+var GAME_HEIGHT        = 957;      //ゲームの高さ（全体）
+var GAME_MAIN_HEIGHT   = 700;      //ゲームの画像が表示される高さ
+var GAME_MSG_WND_Y     = 700;      //メッセージウィンドウが表示される位置
+var GAME_MSG_WND_HEIGHT= 200;      //メッセージウィンドウの高さ
+var CHAR_LEFT_OFFSET   = -30;      //左側に表示されるキャラの位置補正
+var CHAR_RIGHT_OFFSET  = 30;       //右側に表示されるキャラの位置補正
+
+
+////////////////////////////////////////////////////////////////////////
 
 var SYS_DATA_PATH      = "sys/";   //データフォルダのパス
 var DEFAULT_FPS        = 30;       //Frame rate

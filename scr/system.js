@@ -98,12 +98,12 @@ function searchNearImgUrl(data, dataSet, currentLine) {
 function switchingSound() {
     if (game_status['sound_mode']) {
         game_status['sound_mode'] = false;
-        document.getElementById("bgm").pause();
+        bgmStop(null);
+        
     } else {
         game_status['sound_mode'] = true;
         var d_cmd = new Array("bgm", game_status['bgm']);
         bgmStart(d_cmd);
-        
     }
     saveOption();
     return;

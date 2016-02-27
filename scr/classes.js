@@ -149,9 +149,8 @@ var SUBSCREEN = enchant.Class.create(enchant.Sprite, {
 
         //l‚ğ‘‚­
         if (game_status['char_left'] !== "") {
-            //20%‚¸‚ç‚·B
             try {
-                var x = 0 - (game.assets[game_status['char_left']].width * 0.2);
+                var x = 0 + CHAR_LEFT_OFFSET;
                 x += offsetCharLeftX;
                 var y = GAME_MAIN_HEIGHT - game.assets[game_status['char_left']].height;
                 if(y < 0) y = 0;
@@ -177,10 +176,8 @@ var SUBSCREEN = enchant.Class.create(enchant.Sprite, {
         }
 
         if (game_status['char_right'] !== "") {
-            //20%‚¸‚ç‚·B
             try {
-                var x = GAME_WIDTH - game.assets[game_status['char_right']].width +
-                        (game.assets[game_status['char_right']].width * 0.2);
+                var x = GAME_WIDTH - game.assets[game_status['char_right']].width + CHAR_RIGHT_OFFSET;
                 x += offsetCharRightX;
                 var y = GAME_MAIN_HEIGHT - game.assets[game_status['char_right']].height;
                 if(y < 0) y = 0;
