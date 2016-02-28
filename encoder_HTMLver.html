@@ -69,6 +69,15 @@
 			alert("ƒ[ƒh‚µ‚Ü‚µ‚½B");
 		}
 		
+		function fileExistCheck(){
+			 $( "#success" ).load("data/bg/17.jpg", function (response, status, xhr) {
+        		if (status == "error") {
+           		 	var msg = "Sorry but there was an error: ";
+            		alert(msg);
+            		//$("#error").html(msg + xhr.status + " " + xhr.statusText);
+        		}
+    		});
+		}
 	// -->
 	</script>
 	
@@ -125,7 +134,7 @@
 <textarea id="text_area_2"></textarea>
 
 
-
+<div id="success"></div>
 </body>
 
 </html>

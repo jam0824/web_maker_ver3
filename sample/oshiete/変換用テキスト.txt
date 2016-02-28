@@ -1,0 +1,7 @@
+“úí‰¹Šy‚P>sample/oshiete/bgm/tw004.mp3
+‹³‚¦‚Ä‚¦‚Ý‚éæ¶ƒ^ƒCƒgƒ‹>sample/oshiete/bg/teach_me.jpg
+ŠwZ‚P>sample/oshiete/bg/bg01.jpg
+‚—§‚¿ŠG‚P>sample/oshiete/char/mikuruchan_r.png
+^l—§‚¿ŠG‚P>sample/oshiete/char/masato_l.png
+^l—§‚¿ŠG‚Q>sample/oshiete/char/masato_l02.png
+™•À—§‚¿ŠG‚P>sample/oshiete/char/suginami_l.png

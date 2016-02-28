@@ -45,6 +45,7 @@ var game_status = {
 /////////////////////////////////////////////////////
 //initiation
 window.onload = function () {
+   
     enchant.Sound.enabledInMobileSafari = true;
     game = new Core(GAME_WIDTH, GAME_HEIGHT);
     game.fps = DEFAULT_FPS;
