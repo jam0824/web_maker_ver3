@@ -9,6 +9,7 @@ and open the template in the editor.
 */
 
 body {
+    background:#ffffff url("../sys/bg01.png") repeat;
     font-family: ƒƒCƒŠƒI, sans-serif, 'Lucida Grande','Hiragino Kaku Gothic ProN', 'ƒqƒ‰ƒMƒmŠpƒS ProN W3',Meiryo;
 }
 
@@ -80,4 +81,8 @@ button{
 
 .BackLogMain{
     margin: 10px;
+}
+
+#enchant-stage{
+    margin: auto;
 }
