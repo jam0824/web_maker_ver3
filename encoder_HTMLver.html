@@ -4,85 +4,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=shift_jis" />
+    <meta http-equiv="Content-Type" content="text/html; charset=shift_jis" />
     <meta http-equiv="Content-Language" content="ja" />
-    
-
-	<script language="JavaScript">
-	<!--
-		var originExchangeList=new Array();
-		var afterExchangeList=new Array();
-		
-		function exchangeText(){
-			var str_msg="var file_data=new Array(";
-			var t="";
-			var s=new Array();
-			var i,j;
-		
-			exchangeList();		//変換リストを取得
-			t=document.getElementById("text_area_1").value;
-			
-			s=t.split("\n");
-			for(i=0;i<s.length;i++){
-				for(j=0;j<originExchangeList.length;j++){		//変換
-					if(s[i].indexOf(originExchangeList[j])!=-1){
-						s[i]=s[i].split(originExchangeList[j]).join(afterExchangeList[j]);
-					}
-				}
-				str_msg+="'"+s[i]+"',\n";
-			}
-			str_msg+="'');";
-			document.getElementById("text_area_2").value=str_msg;
-			alert("データを変換しました。\n変換したデータをテキストに貼り付けて、ファイル名を「story.js」に変更してください");
-			return;
-		}
-		
-		///////変換リストを変数に保存
-		function exchangeList(){
-			var array_tmp=new Array();
-			var line=new Array();
-			var str_tmp=document.getElementById("exchange_list").value;
-			var i=0;
-			var cnt=0;
-			
-			array_tmp=str_tmp.split("\n");
-			
-			for(i=0;i<array_tmp.length;i++){
-				if(array_tmp[i].indexOf(">")!=-1){		//もし>が含まれる行なら
-					line=array_tmp[i].split(">");
-					originExchangeList[cnt]=line[0];
-					afterExchangeList[cnt]=line[1];
-					cnt++;
-				}
-			}
-		}
-		
-		///////保存
-		function saveStorage(){
-			var str_tmp=document.getElementById("exchange_list").value;
-			localStorage.setItem("key_exchange_list",str_tmp);
-			alert("保存しました。");
-		}
-		///////ロード
-		function loadStorage(){
-			document.getElementById("exchange_list").value=localStorage.getItem("key_exchange_list");
-			alert("ロードしました。");
-		}
-		
-		function fileExistCheck(){
-			 $( "#success" ).load("data/bg/17.jpg", function (response, status, xhr) {
-        		if (status == "error") {
-           		 	var msg = "Sorry but there was an error: ";
-            		alert(msg);
-            		//$("#error").html(msg + xhr.status + " " + xhr.statusText);
-        		}
-    		});
-		}
-	// -->
-	</script>
-	
-	<style type="text/css">
-	<!--
+    <script type="text/javascript" src="scr/jquery-2.2.0.min.js"></script>
+    <script type="text/javascript" src="scr/enchant.min.js"></script>
+    <script charset="shift-jis" type="text/javascript" src="encoderScr/encoderScr.js"></script>
+     <script charset="shift-jis" type="text/javascript" src="scr/define.js"></script>
+     <style>
 	#text_area_1{
 		width:800px;
 		height:300px;
@@ -95,13 +23,13 @@
 		width:600px;
 		height:200px;
 	}
-	// -->
+        
 	</style>
 	<title>書いたテキストをゲーム用に変換します。</title>
 </head>
 
 <body>
-<p><b>テキストエンコーダーHTMLバージョン</b><br><br></p>
+<p><b>テキストエンコーダーHTMLバージョン</b></p>
 <div id="exchangeText">
 <p>０．パソコン上でInternetExplorerを使ってこのHTMLを起動した場合は、下に出ている「ブロックしているコンテンツを許可(A)」をクリックしてください。<br>Firefox,Google Chromeはそのまま実行できます。<br><br></p>
 
