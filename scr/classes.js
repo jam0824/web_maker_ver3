@@ -308,6 +308,7 @@ var SELWINDOW = enchant.Class.create(enchant.Sprite, {
         //ラベルにもイベントリスナー追加（ラベル上をクリックしても反応しないため
         this.sel_label.addEventListener('touchstart', function (e) {
             execSelect(hata);
+            clickSelector();
         });
         game.rootScene.addChild(this.sel_label);
     },

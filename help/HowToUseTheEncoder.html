@@ -1,0 +1,171 @@
+<html>
+
+<head>
+	<title>エンコードのやり方</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" href="../css/common.css" type="text/css" />
+	<link rel="stylesheet" href="data/help.css" type="text/css" />
+</head>
+
+<body>
+
+<div class="margin10 mainContents">
+	<h1>★エンコードのやり方</h1>
+
+	<p>
+	テキストに書いたスクリプトは、『エンコード』をしてはじめて完成します。<br>
+	エンコードとは、書いたスクリプトを「ノベルゲームを作ろう」で使えるテキストの形に整えることです。<br>
+	</p>
+
+	<h2>やりかた</h2>
+
+	<div class="encoderIcon">
+		<div class="floatLeft">
+			<a href="../encoder.html" target="_blank" >
+				<img src="data/001.png" title="エンコーダー" border="0">
+			</a>
+		</div>
+		<div class="floatLeft">
+			ノベつくのファイルがある場所にある「encoder.html」がエンコーダーです。<br>
+			※アイコンは、パソコンで使っているブラウザによって異なります。<br>
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+
+	<br><hr><br>
+
+	
+	<h2>■<a href="../encoder.html" target="_blank">エンコーダー</a>の説明</h2>
+	<p>
+	<br>
+	<br>
+	<p class="bold">
+		０．パソコン上（ローカル）で変換を行うとき、InternetExplorerを使うと以下のようなボックスが現れます。<br>
+		ブロックされたコンテンツを許可してください。<br>
+		FirefoxやGoogle Chromeをお使いの場合はでてきません。<br>
+		<img src="data/002.png"><br>
+	</p>
+	<br><hr><br>
+
+	
+	<p class="bold">
+		１．上のテキストエリアに、あなたの書いたシナリオを貼り付けてください。<br>
+		<img src="data/003.png"><br>
+	</P>
+	<br><hr><br>
+
+	<p class="bold">
+		２．補助欄に、一括変換したい文字列があったら記載してください。（不要の場合は空欄で大丈夫です）
+	</p>
+	主に画像や音楽のパスを一括変更するために使用します。<br>
+	複数有る場合は、改行して複数行で書いてください。<br>
+
+	<p class="bold">
+		（例）<br>
+		佳奈多絵０１>data/char/little/05_hutaki_kanata01.png<br>
+		佳奈多絵０２>data/char/little/05_hutaki_kanata02.png<br>
+	</p>
+	この場合『佳奈多絵０１』という文字が全て『data/char/little/05_hutaki_kanata01.png』といったように変換されます。<br>
+	例えば<br>
+	<p class="bold">
+		『■キャラ、中央、フェード、佳奈多絵０１』<br>
+		という場所は、<br>
+		『■キャラ、中央、フェード、data/char/little/05_hutaki_kanata01.png』<br>
+		に変換されます。<br>
+	</p>
+	また、「保存」ボタンで補助に記載した内容を保存できます。<br>
+	「ロード」ボタンでは保存した補助の内容をロードすることができます。<br>
+	<br>
+	<img src="data/009.png"><br>
+
+	<br><hr><br>
+
+	<p class="bold">
+		３．変換ボタンを押してください。
+	</p>
+	押しますと変換が開始されます。<br>
+	<img src="data/004.png"><br>
+	<br><hr><br>
+
+	<p class="bold">
+		４．ダイアログがでますので、ＯＫを押してください。<br>
+	</p>
+	<img src="data/005.png"><br>
+	<br><hr><br>
+
+	<p class="bold">
+		５．エラーが出ていたら確認！<br>
+	</p>
+	エラーが発生することがあります。<br>
+	その時はエラー内容を確認してください。<br>
+	例えば以下の場合は<br>
+	<p class="bold">
+		『３０行目、２２行目、７３行目で指定しているファイルがありませんよ』<br>
+	</p>
+	という意味のエラーになります。<br>
+	よく見ると、「png」と描かなければいけないところを、うっかり「pnggg」と書いてしまったようです。<br>
+	<img src="data/010.png"><br>
+	<br>
+	もう一つ例としては、以下の場合です。<br>
+	<br>
+	<img src="data/011.png"><br>
+	<br>
+	6行目で『背景コマンドエラー』が発生しています。<br>
+	なので書いたスクリプトの６行目を見ると……<br>
+	「■背景、学校１」<br>
+	となっていました。<br>
+	背景コマンドは「■背景、表示方法、画像」でなければなりません。<br>
+	エラーが出たら、確認して直しましょう。<br>
+	<br>
+		<img src="data/012.png"><br>
+	<br>
+	<br><hr><br>
+
+	<p class="bold">
+		６．変換結果が表示されますので、エラーが無ければそれを全てコピーしてください。<br>
+	</p>
+	<img src="data/006.png"><br>
+	<br><hr><br>
+
+	<p class="bold">
+		７．メモ帳か何かでファイルを作って、それに５．でコピーした変換結果を貼り付けてください。<br>
+		（または直接story.jsの中身に貼り付けてください）
+	</p>
+	<img src="data/007.png"><br>
+	<br><hr><br>
+
+	<p class="bold">
+		８．ファイル名を「story.js」に変更してください。<br>
+	</p>
+	<img src="data/008.png"><br>
+	<br><hr><br>
+
+	<p class="bold">
+		９．index.htmlと同じ場所にstory.jsをおいて完成です。<br>
+	</p>
+	<br><hr><br>
+
+	<br>
+	
+	<p>
+	<pre>
+	雑談
+	エンコーダーで何を処理しているかを書いておきます。
+	エンコーダーでは、書いたスクリプトをfile_dataという配列変数に代入しています。
+
+	簡単に言うと、最初の行にvar file_data=new Array(を追加して、全ての行の最初と最後を''でくくっているだけです（笑）
+	javascriptを知っている人はstory.jsを見るのが手っ取り早いかと思います。
+
+	story.jsはindex.htmlで読み込んでいます。
+	ここのstory.js部分を変更すれば別の名前などに設定できます。
+	</pre>
+	<img src="data/013.png"><br>
+
+</div>
+</body>
+</html>
+
+
+
+

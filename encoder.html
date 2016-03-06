@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=shift_jis" />
+    <meta http-equiv="Content-Language" content="ja" />
+    <link rel="stylesheet" href="encoderScr/encoderScr.css" type="text/css" />
+    <script type="text/javascript" src="scr/jquery-2.2.0.min.js"></script>
+    <script type="text/javascript" src="scr/enchant.min.js"></script>
+    <script charset="shift-jis" type="text/javascript" src="encoderScr/encoderScr.js"></script>
+    <script charset="shift-jis" type="text/javascript" src="scr/define.js"></script>
+    <title>書いたテキストをゲーム用に変換します。</title>
+</head>
+
+<body>
+    
+    <div class="mainContents">
+    
+        <p><b>テキストエンコーダーHTMLバージョン</b></p>
+        <p>０．パソコン上でInternetExplorerを使ってこのHTMLを起動した場合は、下に出ている「ブロックしているコンテンツを許可(A)」をクリックしてください。<br>
+            Firefox,Google Chromeはそのまま実行できます。<br>
+            <br>
+        </p>
+            
+        <div class="exchangeText">
+            <h2>1.ここにあなたの書いたテキストを貼り付けてください。</h2>
+            <textarea id="text_area_1"></textarea>
+        </div>
+
+        <div class="exchangeOption">
+            <h2>補助．</h2>
+            <div class="explain">
+                ここでは文字列をパスなどに変換するためのリストを入力してください。区切りは半角の「>」です。
+                不要の場合は未入力で2.へ移ってください。<br>
+                複数有る場合は、改行して複数行で書いてください。<br>
+                （例）<br>
+                佳奈多絵０１>data/char/little/05_hutaki_kanata01.png<br>
+                佳奈多絵０２>data/char/little/05_hutaki_kanata02.png<br>
+                この場合『佳奈多絵０１』という文字が全て『data/char/little/05_hutaki_kanata01.png』といったように変換されます。<br>
+                例えば『■キャラ、中央、フェード、佳奈多絵０１』という場所は、<br>
+                『■キャラ、中央、フェード、data/char/little/05_hutaki_kanata01.png』に変換されます。<br>
+
+                <textarea id="exchange_list"></textarea>
+                <br>
+                <br>
+                <button onclick="loadStorage()">ロード</button>
+                <button onclick="saveStorage()">保存</button>
+                <br>
+                ※ロード、保存機能はInternet Explorerではサポートしておりません。
+             </div>
+        </div>
+        
+        
+
+        <div class="exchangeResult">
+            <h2>２．変換ボタンを押してください</h2>
+            <button onclick="exchangeText()">変換</button>
+            <div id="success"></div>
+            
+            <p>
+                ３．もしエラーが表示されていたら、スクリプトに間違いがりますのでご確認ください。<br>
+                ４．問題がなければ、ここに表示される結果をメモ帳に貼り付け、保存してください。<br>
+                ５．保存が終わったらファイル名を「story.js」に変更してください。</p>
+            <textarea id="text_area_2"></textarea>
+        </div>
+       
+    </div>
+</body>
+
+</html>

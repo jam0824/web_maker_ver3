@@ -125,6 +125,7 @@ function execSelect(hata) {
     sel_wnd = new Array();
 
     var ok_flag = goto_return(hata);
+    repeat_flag = true;
 }
 
 /////////////////////////////////////////////////////////////////wait

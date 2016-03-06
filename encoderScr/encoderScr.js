@@ -13,7 +13,9 @@ function exchangeText() {
     var t = "";
     var s = new Array();
     var i, j;
-
+    //一度エラー表示をリセット
+    document.getElementById("success").innerHTML = "";
+    
     exchangeList();		//変換リストを取得
     t = document.getElementById("text_area_1").value;
 
@@ -159,7 +161,7 @@ function checkCommand(command, lineNo) {
  */
 function checkUsage(d_cmd, commandName, usageNum, lineNo, commandUsage){
     if(d_cmd.length != usageNum){
-        var msg = commandName + "エラー(" + lineNo + '行目) 参考：<a target="_blank" href="' + helpUrl + commandUsage + '">' + commandName + "</a><br>";
+        var msg = commandName + "エラー (" + lineNo + '行目) 参考：<a target="_blank" href="' + helpUrl + commandUsage + '">' + commandName + "</a><br>";
         $("#success").append(msg);
     }
 }

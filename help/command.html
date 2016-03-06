@@ -1,1014 +1,953 @@
+<!DOCTYPE html>
 <html>
 
 <head>
-<meta http-equiv="content-type" content="text/html; charset=Shift_JIS">
-<style type="text/css">
-
-
-body{
-	color:#6666cc;
-}
-ul{
-	line-height:1em;
-}
-.ex{
-	color:#000000;
-	margin-top:5em;
-	margin-bottom:5em;
-}
-h1{
-	background-image:url("data/bg2.jpg");
-	background-repeat:repeat;
-	padding:5px;
-	text-align:center;
-}
-
-hr{
-	border-top: 10px #4444aa dotted;
-	margin-top:5em;
-	margin-bottom:5em;
-}
-
-p{
-	line-height:1.5em;
-}
-
-</style>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" href="../css/common.css" type="text/css" />
+	<link rel="stylesheet" href="data/help.css" type="text/css" />
 </head>
+
 
 <body>
 
-<div class="content">
+<div class="commandContents">
 
-<center>
-<table width="800"><tr><td>
+	<div class="flow">
+		<a name="flow"></a>
+		<h1>ゲーム完成までの流れ</h1>
+		うぇぶげーメイカーはhtmlなので、簡単にぷれいをすることができます。
+		<br><br>
+		<p>
+			<ol>
+				<li>ゲームの中身の文章――スクリプトを書きます。（<a href="#title">使うことができるコマンドはこちら</a>）</li>
+				<li>絵や音楽を用意します。</li>
+				<li>書いたtxtを『<a href="../encoder.html" target="_blank">encoder.html</a>』でエンコード（プログラムで使える形に）して『story.js』に上書きします。</li>
+				<li>テストプレイを繰り返して、中身をチェック！</li>
+				<li>うぇぶげーメイカーのフォルダを自分のホームページスペースに置いたり、Androidの中に置いたり、友達にわたしたりして……</li>
+				<li>完了です！</li>
+			</ol>
+		</p>
+		<br><br>
+		<p>注意事項</p>
+		<p>
+			<ul>
+				<li>
+					パソコン上（ローカル）でゲームを行うとき、InternetExplorerを使うと以下のようなボックスが現れます。<br>
+					ブロックされたコンテンツを許可してください。<br>
+					<img src="data/002.png"><br><br>
+				</li>
+			</ul>
+		</p>
 
-<div class="index">
-<h1>�ڎ�</h1>
+	</div>
 
-<h2>���͊֌W</h2>
-<ul>
-<li><a href="#kaigyo">���͂̉��s</a></li>
-</ul>
+	<br><hr><br>
 
-<h2>�摜�֌W</h2>
-<ul>
-<li><a href="#title">�^�C�g����\������</a></li>
-<li><a href="#bg">�w�i��ǂݍ���</a></li>
-<li><a href="#char">�L������ǂݍ���</a></li>
-<li><a href="#rm">�L����������</a></li>
-</ul>
 
-<h2>���y�֌W</h2>
-<ul>
-<li><a href="#bgm">BGM��炷</a></li>
-<li><a href="#musicstop">BGM���~�߂�</a></li>
-<li><a href="#se">���ʉ���炷</a></li>
-</ul>
+	<div class="sentense">
+		<h1>★文章関係</h1>
+		<a name="kaigyo"></a>
+		<h2>文章の改行</h2>
 
-<h2>�W�����v</h2>
-<ul>
-<li><a href="#goto">�V�i���I�̔C�ӂ̏ꏊ�ɃW�����v����</a></li>
-</ul>
+		名前を【】でくくった場合、】の後ろで自動的に改行されます。<br>
+		また大文字の＠でも改行されます。（小文字の@では改行されません）<br>
+		htmlタグは一切反映されませんのでお気をつけください。<br>
+		<br>
+		<div class="ex">
+			<pre>
+			（例）
+			【ハルヒ】「だから……みくるちゃんと、あ、あたし…どっちがいいか聞いてるだけよ。＠たっ、他意はない……んだから」
+			【キョン】「そんなもん――」
+			これはなんて答えりゃいいんだ……？＠ハルヒの目は泳いでるし、夏でもないのに顔は真っ赤だ。
 
-<h2>�I����</h2>
-<ul>
-<li><a href="#select">�I������\������</a></li>
-</ul>
 
-<h2>�t���O�֌W</h2>
-<ul>
-<li><a href="#flagset">�ϐ��̒l��ݒ肷��</a></li>
-<li><a href="#flagcal">�ϐ����v�Z����</a></li>
-<li><a href="#if">���򂷂�</a></li>
-</ul>
+			この場合、メッセージウインドウには以下のように表示されます。
 
-<h2>���̂ق�</h2>
-<ul>
-<li><a href="#wait">�҂����Ԃ����</a></li>
-<li><a href="#comment">�R�����g�s</a></li>
-</ul>
+			【ハルヒ】
+			「だから……みくるちゃんと、あ、あたし…どっちがいいか聞いてるだけよ。
+			たっ、他意はない……んだから」
 
-<a href="index.html">���߂�</a>
+			↓
+
+			【キョン】
+			「そんなもん――」
+
+			↓
+
+			これはなんて答えりゃいいんだ……？
+			ハルヒの目は泳いでるし、夏でもないのに顔は真っ赤だ。
+			</pre>
+		</div>
+	</div>
+
+	<br><hr><br>
+
+	<!-- 画像関係////////////////////////////////////////////　-->
+	<div class="image">
+		<h1>★画像関係</h1>
+
+
+
+		<a name="title"></a>
+		<h2>タイトルを表示する</h2>
+
+		<p>
+		<b>コマンド</b>
+			<ul>■タイトル、方法、パス</ul>
+		<b>半角コマンド</b>
+			<ul>title&nbsp;方法&nbsp;パス</ul>
+		</p>
+		<br>
+		<br>
+		<p>
+			方法は以下の３パターンがあります。<br>
+			<br>
+			・カット(またはcut、c)
+				<ul>一瞬で背景を切り替えます。</ul>
+			・ワイプ（またはwipe、w）
+				<ul>縦に切ったように画像を切り替える方法です。</ul>
+			・フェード（またはfade、f）
+				<ul>ゆっくりと画面が切り替わる方法です。</ul>
+		</p>
+
+		<p>
+			タイトル画像を表示します。<br>
+			メッセージウィンドウは表示されません。<br>
+			クリックされると、次のシーンに移ります。<br>
+		</p>
+
+		<div class="ex">
+			<pre>
+
+			■タイトル、ワイプ、data/bg/little_busters.jpg
+
+			【声】「きょーすけが帰ってきたぞーっ！」
+			遠くから声がして僕は呼び覚まされる。
+			それが指し示す意味も眠気で判然としない。
+			【声】「ついにこの時がきたか…」
+			■背景、フェード、data/bg/room.jpg
+			が…続いて聞こえてきた喜びに打ち震える声で目が覚める。
+			ふんと鼻息が聞こえて、それは床に飛び降りていた。
+			■キャラ、中央、フェード、data/char/masato_nikaltu.png
+			【理樹】「真人…こんな時間にどこにいくのさ…」
+			恐る恐る訊いてみる。
+			【真人】「…戦いさ」
+			【理樹】「…は？　こんな夜に？　どこで？」
+			【真人】「ここ」
+			親指で床を指す。
+			■キャラ消し、中央、フェード
+			不敵な笑みを残し、勢いよくドアを開け放つと部屋を飛び出していった。
+			【理樹】「………」
+			【理樹】「ここって…まさか寮内ってこと？」
+			【理樹】「うわぁ」
+
+			</pre>
+		</div>
+
+
+		<br><hr><br>
+
+		<a name="bg"></a>
+		<h2>背景を読み込む</h2>
+
+		<p>
+		<b>コマンド</b>
+			<ul>■背景、方法、パス</ul>
+		<b>半角コマンド</b>
+			<ul>bg&nbsp;方法&nbsp;パス</ul>
+		</p>
+		<br>
+		<br>
+		<p>
+		方法は以下の３パターンがあります。<br>
+		<br>
+		・カット(またはcut、c)
+			<ul>一瞬で背景を切り替えます。</ul>
+		・ワイプ（またはwipe、w）
+			<ul>縦に切ったように画像を切り替える方法です。</ul>
+		・フェード（またはfade、f）
+			<ul>ゆっくりと画面が切り替わる方法です。</ul>
+		</p>
+
+		<p>
+			背景を読み込むと表示していたキャラクターは全員消えます。<br>
+			また、イベント絵も出すときは背景扱いで行ってください。
+		</p>
+
+		<div class="ex">
+			<pre>
+			（例)
+			【当麻】「おおっ！　卵がタイムセール５０円！　行くぞ、インデックス！」
+			【インなんとか】「え、ちょっとトーマっ！？　待ってよ～っ」
+			■背景、ワイプ、data/wagon.jpg
+			タイムセールの会場は、数多の戦場を駆け抜けてきた屈強な猛者達（半数が大仏パーマ）であるオバチャンで溢れていた。
+			【当麻】「……ここに俺が入り込む隙があるのか……？」
+			【インなんとか】「無理だね、むりむり」
+			</pre>
+		</div>
+
+		<br><hr><br>
+
+
+		<a name="char"></a>
+		<h2>キャラを読み込む</h2>
+
+		<p>
+			<b>コマンド</b>
+				<ul>■キャラ、場所、方法、パス</ul>
+			<b>半角コマンド</b>
+				<ul>char 場所 方法 パス</ul>
+		</p>
+		<br><br>
+		<p>
+			場所は以下の３箇所があります。
+			<ul>
+			<li>左（またはleft、l）</li>
+			<li>中央（またはcenter、c）</li>
+			<li>右（またはright、r）</li>
+			</ul>
+		</p>
+		<p>
+			方法は以下の２パターンがあります。<br>
+			・カット（またはcut、c）
+				<ul>一瞬でキャラを切り替えます。</ul>
+			・フェード（またはfade、f）
+				<ul>ゆっくりとキャラ画像が切り替わる方法です。</ul>
+		</p>	
+
+		<p>
+			キャラクターは透過png、透過gifのみの使用ができます。<br>
+			透過処理をしていない画像の場合、背景が透過されません。
+		</p>
+
+		<div class="ex">
+			<pre>
+			（例)
+			【上条】「お、ビリビリ中学生じゃねーか」
+			■キャラ、中央、data/char/mikoto_kao_makka.png
+			【美琴】「ゲ！？」
+			【上条】「人を見るなりゲはないだろ。――今後ろに何か隠さなかったか？」
+			【美琴】「かっ、かかかかかかかかかかくしてないわよっ！！」
+			【？？】「――おねぇさまっ！」
+			■キャラ、右、data/char/kuroko_neko_kuti.png
+			【美琴】「くっ、黒子っ！？」
+			【黒子】「わかっていますの？　今日は２月１４日、わたくしとお姉様の日ですわっ――あら、このチョコレートは……」
+			■キャラ、中央、data/char/mikoto_yuge_pusyuu.png
+			【美琴】「っっっ！！」
+			■キャラ、右、data/char/kuroko_bikkuri.png
+			【黒子】「ハッ！？　ま、まさかこのわたくしに、わたくしにぃぃぃっ！？」
+
+			</pre>
+		</div>
+
+
+		<br><hr><br>
+
+
+		<a name="rm"></a>
+		<h2>キャラを消す</h2>
+
+		<p>
+			<b>コマンド</b>
+				<ul>■キャラ消し、場所、方法</ul>
+			半角コマンド
+				<ul>rm 場所 方法</ul>
+		</p>
+		<br><br>
+
+		<p>
+			場所は以下の３箇所があります。
+			<ul>
+				<li>左（またはleft、l）</li>
+				<li>中央（またはcenter、c）</li>
+				<li>右（またはright、r）</li>
+				<li>全員（またはall、a）</li>
+			</ul>
+		</p>
+		<br>
+		<p>
+			方法は以下の２パターンがあります。<br>
+			・カット（またはcut、c）
+				<ul>一瞬でキャラを消します。</ul>
+			・フェード（またはfade、f）
+				<ul>ゆっくりとキャラ画像が消える方法です。</ul>
+
+		</p>
+
+		<div class="ex">
+			<pre>
+			（例)
+			■キャラ、中央、data/char/kuroko_kao_makka.png
+			【黒子】「おおおお姉さま、いいい今なんと……？」
+			【美琴】「勘違いしない！　まだ布団が寒いから一緒に寝ない、って言っただけでしょ」
+			【黒子】「……ふひひひひひ……」
+			【美琴】「くろこ……？」
+			【黒子】「お・姉・さ・まぁーーーっ！！」
+			■キャラ消し、中央
+			――ばふ～～んっ！！
+			【美琴】「こ、こらっ！　布団に押し倒すなっ！　離れなさい！　離れろっ！！」
+			【黒子】「お姉さまお姉さまお姉さまーーーっ」
+			【美琴】「おちつけッ！　きゃっ！？　首にキスするなっ！　ひゃん、み、耳をかじるんじゃないっ！」
+
+			</pre>
+		</div>
+
+
+	<br><hr><br>
+
+	</div>
+
+
+
+	<div class="music">
+
+		<h1>★音楽関係</h1>
+
+		<a name="bgm"></a>
+		<h2>ＢＧＭを鳴らす</h2>
+
+		<p>
+			<b>コマンド</b>
+				<ul>■音楽、場所</ul>
+			<b>半角コマンド</b>
+				<ul>bgm 場所</ul>
+		</P>
+
+		<p>
+			BGM用にはmp3をご用意ください。<br>
+			スマートフォンの場合は大きな容量をやり取りするため、mp3ファイルのサイズにはお気をつけ下さい。<br>
+			またスマートフォンの場合、サイレントにしていても音量設定によっては音が出ます。<br>
+			くれぐれもお気をつけ下さい。<br>
+		</p>
+
+		<p>
+			BGMは先行してダウンロードしないため、回線によって再生の遅延が発生します。<br>
+			なるべく容量が小さいファイルをお勧めします。
+		</p>
+		<p>
+			ブラウザの対応フォーマット
+			<ul>
+				<li>IE9 : mp3</li>
+				<li>Firefox : mp3, ogg</li>
+				<li>chrome : mp3, ogg</li>
+			</ul>
+		</p>
+
+		<div class="ex">
+			<pre>
+			（例)
+			【葉留佳】「桃電わたしの勝ちーっ！　お姉ちゃんバツゲーム決定ーっ！」
+			【佳奈多】「はぁ……約束だものね、わかったわよ。何をすればいいの？」
+			【葉留佳】「ご飯作って」
+			■背景、ワイプ、data/event/kanata_epuron_sugata.jpg
+			【佳奈多】「――ハンバーグって意外と難しいのよね……」
+			【葉留佳】「……むふふ……」
+			【佳奈多】「こっそり後ろに近づいて何？　見ての通りまだ作り中。台所狭いんだから向こうに行ってなさい」
+			【葉留佳】「だからいいのだ。――ぎゅっ」
+			【佳奈多】「きゃっ！？　なに抱きついて――」
+			【葉留佳】「……ここからがバツゲームだよ。そのまま料理を続けてて、お姉ちゃん。反応しちゃだめ」
+			【佳奈多】「…………わ、わかったわよ」
+
+			■音楽、data/bgm/sharara.mp3
+
+			【葉留佳】「……お姉ちゃんっていいにおい……」
+			【佳奈多】「……っ……」
+			【葉留佳】「ウエストも細いね……ふふ……上の方は……」
+			【佳奈多】「や、やめなさい…っ」
+			【葉留佳】「わぁ、お姉ちゃん顔まっかっかだよ？　――唇もいただきっ」
+
+
+			（作者談）
+			妄想が暴走しました（爆）
+			</pre>
+		</div>
+
+
+		<br><hr><br>
+
+		<a name="musicstop"></a>
+		<h2>ＢＧＭを止める</h2>
+
+		<p>
+			<b>コマンド</b>
+				<ul>■音楽ストップ</ul>
+			<b>半角コマンド</b>
+				<ul>musicstop</ul>
+		</p>
+
+		<p>
+			現在再生されている音楽をストップします。<br>
+			再生のときは、音楽コマンドで再生します。
+		</p>
+
+		<div class="ex">
+			<pre>
+			（例)
+			【佳奈多】「や、やめなさい…っ」
+			【葉留佳】「わぁ、お姉ちゃん顔まっかっかだよ？　――唇もいただきっ」
+			【佳奈多】「んっ……」
+
+			――がちゃっ！
+
+			【クド】「佳奈多さん、ただいま戻りましたっ！ 寂しい思いをさせてしまってごめんなさいです」
+			【葉留佳・佳奈多】「…へ？」
+			【クド】「小毬さんと夜まで遊ぶつもりだったのですが、ご用事があるとかで――」
+
+			■音楽ストップ
+
+			【クド】「…………」
+			【葉留佳】「え、えーっと、こ、これはデスナ……」
+			■キャラ、中央、data/char/kudo_makka.png
+			【クド】「はわわわわわわわわわーーーっ！？」
+			【佳奈多】「ク、クドリャフカっ」
+			【クド】「三枝さんの手が佳奈多さんのお洋服の中に入ってて、それでっ、それで――っ！」
+			【クド】「私の佳奈多さんが、キ、キスをしていましたぁーっ！？」
+
+			</pre>
+		</div>
+
+		<br><hr><br>
+
+		<a name="se"></a>
+		<h2>効果音を鳴らす</h2>
+
+		<p>
+			<b>コマンド</b>
+				<ul>■ＳＥ、場所</ul>
+			<b>半角コマンド</b>
+				<ul>se 場所</ul>
+		</p>
+
+		<p>	
+			こちらもブラウザによって再生可能なフォーマットが違うため、鳴らない場合があります。<br>
+			効果音は先行してダウンロードをしています。<br>
+			また、ループはしません。
+		</p>
+
+
+		<div class="ex">
+			<pre>
+			（例)
+			【佐々美】「いくわよ、棗鈴！」
+			【鈴】「こい、タンスの肥やしにしてやろう」
+			【佐々美】「意味がわかりませんわっ！　これでも…喰らいなさいなッ！」
+			【鈴】「みゃっ！？」
+
+			■ＳＥ、data/se/bakiii.ogg
+
+			■背景、フェード、data/bg/rouka.png
+			……。
+			……。
+			【佐々美】「棗さん？　棗鈴！」
+			【鈴】「……」
+			【佐々美】「や、やりすぎたかしら？　お、起きそうにありませんわね……」
+			【鈴】「……」
+			【佐々美】「……」
+			【佐々美】「ちょっとだけ、いいかしら」
+			――つんつん、ぷにぷにぃ
+			【佐々美】「すんごくやわいホッペですわね……つんつん……つんつん……」
+			――つんつんぷにぷにつんつん
+			【佐々美】「……く、くせになりそうですわ。自重自重っと」
+			【佐々美】「……」
+			【佐々美】「………………」
+			――つんつんぷにぷにつんつんつんつんぷにぷにつんっ
+			【佐々美】「ああもうっ！　やめられませんわ～」
+
+
+			</pre>
+		</div>
+
+	</div>
+
+	<br><hr><br>
+
+
+	<div class="jump">
+
+		<h1>★ジャンプ</h1>
+		<a name="goto"></a>
+		<h2>シナリオの任意の場所にジャンプする</h2>
+		<p>
+			<b>コマンド</b>
+				<ul>■ジャンプ、ハタ名</ul>
+			<b>半角コマンド</b>
+				<ul>goto ハタ名</ul>
+		</p>
+
+		<p>
+			シナリオの『ハタ名』の場所にジャンプします。<br>
+			ハタとは言わば目印です。<br>
+			ハタは『＃』で記述します。<br>
+			例は以下です。<br>
+		</p>
+		<p>
+			# はた０１<br>
+			【ｍ】「ここまでジャンプしました」<br>
+		</p>
+			<p>または</p>
+			<p>
+			■＃、はた０１<br>
+			【ｍ】「ここまでジャンプしました」<br>
+		</p>
+		</div>
+
+		<div class="ex">
+			<pre>
+			（例)
+			【ディアボロ】「すでに射程距離に入っているッ！　今度は逃がさないッ！」
+			【ディアボロ】『キング・クリムゾンッ』！
+			■ジャンプ、hata01
+
+
+			ドドドドド……
+			【ディアボロ】「これで時が再び刻み始める時、おまえは目が曇って血の滴の数が見えない…」
+			【ディアボロ】「未熟なオレの過去を……」
+			【ディアボロ】「この時点でオレは乗り越えた……！！」
+			【ディアボロ】「くらえッ！　時は再び刻み始…………！！」
+			■背景、フェード、data/event/stand_change.jpg
+			【ディアボロ】「な……なんだ！？　これは……」
+			【ディアボロ】「『矢』が…！！　『スタンド』を……」
+			【ディアボロ】「何かわからんがくらえッ！」
+			■ＳＥ、data/se/pikaaa.ogg
+			【ディアボロ】「こ…この輝きは『矢』のせいかッ！？」
+			【ディアボロ】「ま…まずい！　何かッ！」
+			【ディアボロ】「くらえッ！　時よ再始動しろ――ッ！！」
+
+
+			# hata01
+			■ＳＥ、data/se/zukyuuuuuuuuuuuuuuun.ogg
+			【ディアボロ】「バカな！　チャリオッツの射程は近距離パワー型、離れても２メートル程度のはず！」
+			【ディアボロ】「何をした？」
+			【ポルナレフ】「これは……『賭け』だ……」
+
+			</pre>
+		</div>
+	
+
+
+	<br><hr><br>
+
+	<div class="select">
+		<h1>★選択肢関係</h1>
+		<a name="select"></a>
+		<h2>選択肢を表示する</h2>
+
+		<p>
+			<b>コマンド（選択肢数は複数設定可能です）</b>
+				<ul>■選択肢</ul>
+				<ul>選択肢１ ジャンプするハタ１（区切りは半角スペース）</ul>
+				<ul>選択肢２ ジャンプするハタ２（区切りは半角スペース）</ul>
+				<ul>選択肢３ ジャンプするハタ３（区切りは半角スペース）</ul>
+				<ul>選択肢４ ジャンプするハタ４（区切りは半角スペース）</ul>
+				<ul>■選択肢終わり</ul>
+
+			<b>半角コマンド（選択肢数は複数設定可能です）</b>
+				<ul>select</ul>
+				<ul>選択肢１ ジャンプするハタ１（区切りは半角スペース）</ul>
+				<ul>選択肢２ ジャンプするハタ２（区切りは半角スペース）</ul>
+				<ul>選択肢３ ジャンプするハタ３（区切りは半角スペース）</ul>
+				<ul>選択肢４ ジャンプするハタ４（区切りは半角スペース）</ul>
+				<ul>selectend</ul>
+
+		</p>
+
+		<p>
+			選択肢の表示数には制限はありません。<br>
+			選択肢を選ぶと、対応したハタまでジャンプします。<br>
+			選択肢終了箇所には、必ず「■選択肢終わり」または「selectend」を記述してください。<br>
+		</p>
+
+		<div class="ex">
+			<pre>
+			（例)
+			【美琴】「喰らえっ！」
+			【上条】「うわわっ！　だからっ！　おわっと！　何で目の敵にされてんですか、俺ーっ」
+			【美琴】「存在自体が気に食わないのよっ！！　これは避けれないでしょっ！」
+			電光石火の鋭い回し蹴りが襲い掛かる！
+			コイツは避けないとヤバイ！
+
+
+			■選択肢
+			右に避ける migi_yoke
+			しゃがんで避ける syagami_yoke
+			■選択肢終わり
+
+
+			■＃、syagami_yoke
+			【上条】「ここはしゃがんで――」
+			何もかも遅かった。
+			蹴りは既に目の前だった。
+			【上条】「え？」
+			俺のマヌケな声が先か。それともグキャリという音が先だったのか。
+			俺の視界は暗転した。
+			■背景、ワイプ、data/bg/game_over.png
+
+
+
+			■＃、migi_yoke
+			【上条】「あぶねぇっ！」
+			鼻先を蹴りが掠めた！　まともに喰らっていたら首の骨ぐらい持っていかれたかも……！
+			【美琴】「甘いわ！　黒子！」
+			【黒子】「はい、お姉さまっ！」
+			声と共に、俺の斜め上にツインテールの少女が現れた！
+			【黒子】「いつもいつもお姉さまにチョッカイだして！　今日という今日は滅殺ですわ！！」
+			【上条】「ふっかけて来るのはいつも御坂のほうだってのっ！　っと！」
+			すかさずバックステップ。
+			少女が俺のいたところに落下しながら蹴りを放ち、地面に着地を……。
+			――グキッ
+			【黒子】「んっ！」
+			足をくじいたのか、着地と同時にバランスを崩した。
+			【黒子】「わわっ！？」
+			【上条】「お、おいっ！？」
+			すかさず支えようとした俺と、前のめりに倒れそうな少女。
+			俺が少女側に飛び込んだのがまずかった。盛大にまずかった。
+			少女の顔が近づいてきた、それくらいにしか思っていなかった。
+			■背景、カット、data/event/kamizyou_kuroko_kiss.jpg
+			――ちゅっ
+			【上条】「…！？」
+			【黒子】「！？！？！？」
+			唇と唇が――
+			重なっていた！
+			【上条】「……………………」
+			【黒子】「……………………」
+			女の子らしいシャンプーの香りが俺を包む。
+			そして口には柔らかい温もり。
+			って！！
+			【上条】「うわわわっ！」
+			【黒子】「ひ…ひやぁぁぁーっ！？」
+			慌てて離れた！！
+			音を立てて１メートル以上一瞬で離れた！
+			【上条】「いいいいいい今のは事故だ！　な、なあそうだろ！？　なっ！？」
+			【黒子】「じじじじ事故で、す、す済まされないですわッッッ！！　おおおおお姉さま、この不届き者を亡き者に――」
+			俺たちが目線を送った先。
+			そこには御坂が立っている。
+			立っているのだが――
+			【黒子】「お……姉……さま？」
+			【美琴】「あれ……あたし……」
+			ぽろぽろと、ぽろぽろと。
+			大粒の涙がこぼれていた。
+			【美琴】「あたし……なんで……泣いてるんだろ……？」
+			【上条】「御坂……？」
+			【美琴】「ッ！！」
+			――ダッ！
+			一瞬の間のあと、御坂が駆け出した。
+			【黒子】「お、お姉さまっ！！」
+
+
+			（作者談）
+			筆が乗るって怖いですね……（ぉぃ
+
+			</pre>
+		</div>
+	</div>
+
+
+
+	<br><hr><br>
+
+	<div class="flag">
+		<h1>★フラグ関係</h1>
+		<a name="flagset"></a>
+		<h2>変数の値を設定する</h2>
+
+		<p>
+			<b>コマンド</b>
+				<ul>■変数セット、フラグのラベル(A～Z)、数字</ul>
+			<b>半角コマンド</b>
+				<ul>flagset フラグのラベル(A～Z) 数字</ul>
+		</P>
+
+		<p>
+			A～Zまでの26個の変数に、数字を設定します。<br>
+			フラグが立ったという場合、</P>
+			<p>■変数セット、A、1</p>
+			<p>と設定するとよいです。<br>
+			また、フラグのラベル、数字はどちらも半角で記述してください。<br>
+		</p>
+
+		<div class="ex">
+			<pre>
+
+			【黒子】「ちょっとあなた！」
+			【上条】「な、なんだよ！？」
+			【黒子】「お姉さまを追いなさい！」
+			【上条】「……」
+
+			■選択肢
+			御坂を追う heart_catch_mikoto
+			御坂を追わない heart_catch_kuroko
+			■選択肢終わり
+
+			■＃、heart_catch_mikoto
+			flagset A 1
+			【上条】「……ああ。あとは俺に任せろ」
+			【黒子】「…………ええ、お姉さまを任せましたわ…………」
+			俺は全速力で駆け出した。
+			御坂がなんで泣いていたのか？
+			それはわからない。
+			けれど放っておけない背中だった。あまりに悲しそうな背中だった。
+
+			■＃、heart_catch_kuroko
+			flagset B 1
+			【上条】「……行けねぇよ」
+			【黒子】「なぜですの！？」
+			【上条】「それは――アンタも泣いてるからだ」
+			【黒子】「え…？」
+			【上条】「謝らせてくれ。もちろん謝って許されることじゃないことくらいわかってる」
+			【黒子】「わかってるのでしたら……っ！」
+			【上条】「――自分のせいで目の前の女の子が泣いているのに、置いて行けねぇよ、やっぱさ」
+
+
+			</pre>
+		</div>
+
+		<br><hr><br>
+
+		<a name="flagcal"></a>
+		<h2>変数を計算する</h2>
+		<p>
+			<b>コマンド</b>
+				<ul>■フラグ計算、フラグのラベル(A～Z)、符号、数字</ul>
+			<b>半角コマンド</b>
+				<ul>flagcal フラグのラベル 符号 数字</ul>
+		</p>
+		<p>
+		A～Zまでの26個の変数対し、計算を行います。<br>
+		対応している計算は以下です。<br>
+		</p>
+		<ul>
+			<li>足し算(+)</li>
+			<li>引き算(-)</li>
+			<li>割り算(/)</li>
+			<li>掛け算(*)</li>
+			<li>剰余計算(%)（あまりを求める計算）</li>
+		</ul>
+		<p>例えば</p>
+		<p>flagcal A + 1</p>
+		<p>
+			こうした場合、Aに１が加わります。<br>
+			好感度が上がった、といった場合に使用できます。<br>
+			以下のように変数に変数の値で計算することも可能です。<br>
+			flagcal A - B<br>
+			この場合、ＡからＢの値を引きます。<br>
+			また、計算は符号が１個までです。<br>
+			以下のようなことはできません
+		</p>
+		<p>×　flagcal A + 1 + 1</p>
+
+
+
+		<div class="ex">
+			<pre>
+			（例）
+
+			【上条】「御坂ーっ」
+			振り向くと、雨の中を一人駆ける影。
+			【美琴】「……え？」
+			まさか追ってくるとは思わなかった。
+			追ってきてもらいたくなかった。
+			こんな顔を見せたくなかった。
+			けど……。
+			flagcal A + 1
+			追ってきてくれて嬉しかった。
+			本当に嬉しかった。
+			【上条】「はぁ、はぁ、はぁ……風邪、ひくぞ」
+			【美琴】「……あんたこそ」
+			顔を逸らした。まともに顔を見れないからだ。
+			【上条】「その……なんだ、さっきのことだけどさ」
+			【美琴】「…わかってる…わよ。よかったじゃない……女の子と……キスできて」
+			止まったはずの涙が自分の強がりでまたこぼれ始めた。
+			事故だってことくらいわかってる。
+			雨と涙でもう顔はぐちゃぐちゃだ。
+			【上条】「ほらよ、ハンカチ。この雨じゃ関係ねぇかもしれないけど」
+			flagcal A + 1
+			【美琴】「……受け取っておくわ」
+
+
+			</pre>
+		</div>
+
+		<br><hr><br>
+
+		<a name="if"></a>
+		<h2>分岐する</h2>
+		<p>
+			<b>コマンド</b>
+				<ul>■もし、フラグのラベル、符号、数字、真だった場合に飛ぶハタ</ul>
+			<b>半角コマンド</b>
+				<ul>if フラグのラベル 符号 数字 真だった場合に飛ぶハタ</ul>
+		</p>
+		<p>以下の条件符号が使用できます。</p>
+		<ul>
+			<li>＝（イコール）</li>
+			<li>＜（～より小さい）</li>
+			<li>＞（～より大きい）</li>
+			<li>＜＝（～以下）</li>
+			<li>＞＝（～以上）</li>
+			<li>！＝（～ではない場合）</li>
+		</ul>
+		<p>
+			条件が真だった場合、記述したハタの位置に飛びます。
+			条件が偽だった場合、下の行を実行します。
+		</p>
+		<p>例）</P>
+		<p>if A = 1 hata1<br>
+		～</p>
+
+		<p>
+			もしもAが1だった場合、hata1のところまでジャンプします。<br>
+			Aがそれ以外の場合、下の行をそのまま実行します。<br>
+			変数と変数を比較することも可能です。<br>
+			if A > B hata01<br>
+			この場合は、Ａの変数がＢの変数より大きい場合、hata01にジャンプします。<br>
+			また、条件は一つまでです。複数の条件は設定できません<br>
+		</p>
+
+		<div class="ex">
+			<pre>
+			（例）
+
+			あれから一ヶ月の時間が過ぎた。
+			if A >= 10 mikoto_happy_end
+			昼休み。
+			誰もいない校門の前には見慣れた子が可愛らしい包みを持って立っていた。
+			【黒子】「来てやりましたわよ。はい、お弁当」
+			【上条】「いつも悪いな、黒子」
+			――べしっ
+			【上条】「うわっ、なんで叩くんだよっ！」
+			【黒子】「うっ、うっさいですわねっ！　わ、わたくしはただ貴方が不味そうなパンばかり食べていて可哀相だから作っているだけですわ！」
+			【上条】「サンキュな」
+			■キャラ、中央、フェード、data/char/kuroko_makka.png
+			【黒子】「～～～っ」
+			【上条】「いてっ、蹴るなっ踏むなっ！」
+			【黒子】「……ふん。じゃ、食べに行きましょう」
+			【上条】「くそぅ、好きなだけやりやがって……」
+			【黒子】「その前に」
+			【上条】「んだよ」
+			【黒子】「わたくし、さっきのことでひどく傷つきましたわ」
+			【上条】「あれくらいでかよ？」
+			【黒子】「そして周りには誰もいない、と」
+			【上条】「だから？」
+			【黒子】「誠・意、ですわ」
+			【上条】「誠意……？」
+			【黒子】「誠意を見せてくださいまし」
+			黒子が軽く目を閉じ、口を突き出してきた。
+			足なんてつま先立ちだ。こいつ小っちゃいからな。
+			俺は１週間前に彼女になった小柄な女の子に
+			■背景、フェード、data/event/kuroko_happy_end.jpg
+			今度は偶然ではない、誠意のこもったキスをした。
+
+
+			■＃、mikoto_happy_end
+			日曜日。
+			有名ネズミが俺たちを夢の国に出迎えてくれた。
+			そう、遊園地へやってきたのだ。
+			中はカップルだらけだ。
+			……今では俺たちもその中の一組だということだけ付け加えておくか。
+			【美琴】「ふわふわ～」
+			【上条】「美琴、あぶないぞ」
+			【美琴】「ふわふわ～ふわふわ～」
+			――ドンっ
+			【有名ネズミ】「ハハ～ッ！　ズテン！」
+			美琴がぶつかった有名ネズミが笑いながらコケた。
+			仕方なく助け起こしてやる。
+			美琴はというと……。
+			【美琴】「ふわふわ～ふわわ～」
+			……。
+			美琴は身も心も行動もふわふわしていた。
+			ついでにふわふわ口にさえ出している。
+			例えるのならばアレだろうか。
+			夢見る乙女。
+			……。
+			おーい、御坂さーん、現実に戻ってきてくださーい。
+			【上条】「おい、ふわふわしてると迷子になるぞ」
+			手を繋いでみた
+			【美琴】「――ッ！」
+			ピキン！と音を立てて美琴が固まった。顔は真っ赤だ。
+			【上条】「ほら、行くぞ」
+			【美琴】「ウ、ウン」
+			【上条】「……」
+			歩くときに右手と右足が同時に出ているのですが。
+			今にも関節から機械音がしそうなのですが。
+			俺はいつからペッパー君を連れて夢の国に来ちまったのだろうか？
+
+			</pre>
+		</div>
+	</div>
+
+
+
+
+	<div class="others">
+		<br><hr><br>
+		<h1>★そのほか</h1>
+		<a name="wait"></a>
+		<h2>待ち時間を作る</h2>
+		<p>
+			<b>コマンド</b>
+				<ul>■ウェイト、待ち時間（ms）</ul>
+			<b>半角コマンド</b>
+				<ul>wait 待ち時間(ms)</ul>
+		</p>
+		<p>
+			指定時間だけ次の行の実行を待ちます。
+			時間はmsで設定します。1000msで１秒です。
+		</p>
+
+		<div class="ex">
+			<pre>
+			（例）
+
+			【真人】「くらえっ！！」
+			【謙吾】「させるかっ！！」
+
+			■ＳＥ、data/se/bakiii.ogg
+			■背景、カット、data/bg/white.jpg
+			■ウェイト、100
+			■背景、カット、data/bg/black.jpg
+			■ウェイト、100
+
+			【真人】「くそぅ、これくらいじゃやっぱひるまねぇか」
+			【謙吾】「当たり前であろう。次はこちらから行くぞ」
+
+			</pre>
+		</div>
+
+
+
+		<br><hr><br>
+		<h2>コメント行</h2>
+		<p>
+			<a name="comment"></a>
+			<b>コマンド</b>
+				<ul>// コメント（コメント前に半角スペースを入れる）</ul>
+		</p>
+		<p>
+			// から始まる行はコメントとみなされ、実行しません。<br>
+			これはスクリプト文に説明文が欲しい場合に使用します。<br>
+		</p>
+
+
+
+		<div class="ex">
+			<pre>
+			（例）
+
+			// ここからインデックス用のシナリオ
+			【上条】「なぁ、インデックス。話を聞いてくれよ」
+			【インなんとか】「ヤダっ！！　トーマの女たらしっ！！」
+			【上条】「だから違うんだって！」
+
+			// このへんに画像をいれたらどうかな？（コメントです）
+
+			【インなんとか】「ガブッ！！」
+			【上条】「ぎゃぁぁぁぁぁぁぁぁーーーっ！！」
+			</pre>
+		</div>
+	</div>
 
 </div>
 
-
-
-
-<div class="sentense">
-<h1>�����͊֌W</h1>
-<a name="kaigyo">
-<h2>���͂̉��s</h2>
-
-���O���y�z�ł��������ꍇ�A�z�̌��Ŏ����I�ɉ��s����܂��B<br>
-�܂��啶���́��ł����s����܂��B�i��������@�ł͉��s����܂���j<br>
-html�^�O�͈�ؔ��f����܂���̂ł��C�������������B<br>
-<br>
-<div class="ex">
-<pre>
-�i��j
-�y�n���q�z�u������c�c�݂��邿���ƁA���A�������c�ǂ����������������Ă邾����B�������A���ӂ͂Ȃ��c�c�񂾂���v
-�y�L�����z�u����Ȃ���\�\�v
-����͂Ȃ�ē�����Ⴂ���񂾁c�c�H���n���q�̖ڂ͉j���ł邵�A�Ăł��Ȃ��̂Ɋ�͐^���Ԃ��B
-
-
-���̏ꍇ�A���b�Z�[�W�E�C���h�E�ɂ͈ȉ��̂悤�ɕ\������܂��B
-
-�y�n���q�z
-�u������c�c�݂��邿���ƁA���A�������c�ǂ����������������Ă邾����B
-�����A���ӂ͂Ȃ��c�c�񂾂���v
-
-��
-
-�y�L�����z
-�u����Ȃ���\�\�v
-
-��
-
-����͂Ȃ�ē�����Ⴂ���񂾁c�c�H
-�n���q�̖ڂ͉j���ł邵�A�Ăł��Ȃ��̂Ɋ�͐^���Ԃ��B
-</pre>
-</div>
-
-
-
-
-
-
-
-</div>
-
-<div class="image">
-<h1>���摜�֌W</h1>
-<a name="title">
-<h2>�^�C�g����\������</h2>
-
-<p>
-<b>�R�}���h</b>
-	<ul>���^�C�g���A���@�A�p�X</ul>
-<b>���p�R�}���h</b>
-	<ul>title&nbsp;���@&nbsp;�p�X</ul>
-</p>
-<br>
-<br>
-<p>
-���@�͈ȉ��̂R�p�^�[��������܂��B<br>
-<br>
-�E�J�b�g(�܂���cut�Ac)
-	<ul>��u�Ŕw�i��؂�ւ��܂��B</ul>
-�E���C�v�i�܂���wipe�Aw�j
-	<ul>�c�ɐ؂����悤�ɉ摜��؂�ւ�����@�ł��B</ul>
-�E�t�F�[�h�i�܂���fade�Af�j
-	<ul>�������Ɖ�ʂ��؂�ւ����@�ł��B</ul>
-</p>
-
-<p>
-�^�C�g���摜��\�����܂��B<br>
-���b�Z�[�W�E�B���h�E�͕\������܂���B<br>
-�N���b�N�����ƁA���̃V�[���Ɉڂ�܂��B<br>
-
-</p>
-
-<div class="ex">
-<pre>
-
-���^�C�g���A���C�v�Adata/bg/little_busters.jpg
-
-�y���z�u����[�������A���Ă������[���I�v
-�������琺�����Ėl�͌Ăъo�܂����B
-���ꂪ�w�������Ӗ������C�Ŕ��R�Ƃ��Ȃ��B
-�y���z�u���ɂ��̎����������c�v
-���w�i�A�t�F�[�h�Adata/bg/room.jpg
-���c�����ĕ������Ă�����тɑł��k���鐺�Ŗڂ��o�߂�B
-�ӂ�ƕ@�����������āA����͏��ɔ�э~��Ă����B
-���L�����A�����A�t�F�[�h�Adata/char/masato_nikaltu.png
-�y�����z�u�^�l�c����Ȏ��Ԃɂǂ��ɂ����̂��c�v
-���鋰��u���Ă݂�B
-�y�^�l�z�u�c�킢���v
-�y�����z�u�c�́H�@����Ȗ�ɁH�@�ǂ��ŁH�v
-�y�^�l�z�u�����v
-�e�w�ŏ����w���B
-���L���������A�����A�t�F�[�h
-�s�G�ȏ΂݂��c���A�����悭�h�A���J�����ƕ������яo���Ă������B
-�y�����z�u�c�c�c�v
-�y�����z�u�������āc�܂����������Ă��ƁH�v
-�y�����z�u���킟�v
-
-</pre>
-</div>
-
-<hr>
-
-
-
-<a name="bg">
-<h2>�w�i��ǂݍ���</h2>
-
-<p>
-<b>�R�}���h</b>
-	<ul>���w�i�A���@�A�p�X</ul>
-<b>���p�R�}���h</b>
-	<ul>bg&nbsp;���@&nbsp;�p�X</ul>
-</p>
-<br>
-<br>
-<p>
-���@�͈ȉ��̂R�p�^�[��������܂��B<br>
-<br>
-�E�J�b�g(�܂���cut�Ac)
-	<ul>��u�Ŕw�i��؂�ւ��܂��B</ul>
-�E���C�v�i�܂���wipe�Aw�j
-	<ul>�c�ɐ؂����悤�ɉ摜��؂�ւ�����@�ł��B</ul>
-�E�t�F�[�h�i�܂���fade�Af�j
-	<ul>�������Ɖ�ʂ��؂�ւ����@�ł��B</ul>
-</p>
-
-<p>�w�i��ǂݍ��ނƕ\�����Ă����L�����N�^�[�͑S�������܂��B<br>
-�܂��A�C�x���g�G���o���Ƃ��͔w�i�����ōs���Ă��������B
-</p>
-
-<div class="ex">
-<pre>
-�i��)
-�y�����z�u�������I�@�����^�C���Z�[���T�O�~�I�@�s�����A�C���f�b�N�X�I�v
-�y�C���Ȃ�Ƃ��z�u���A������ƃg�[�}���I�H�@�҂��Ă�`���v
-���w�i�A���C�v�Adata/wagon.jpg
-�^�C���Z�[���̉��́A�����̐����삯�����Ă��������ȖҎҒB�i�������啧�p�[�}�j�ł���I�o�`�����ň��Ă����B
-�y�����z�u�c�c�����ɉ������荞�ތ�������̂��c�c�H�v
-�y�C���Ȃ�Ƃ��z�u�������ˁA�ނ�ނ�v
-</pre>
-</div>
-
-<hr>
-<a name="char">
-<h2>�L������ǂݍ���</h2>
-
-<p>
-<b>�R�}���h</b>
-	<ul>���L�����A�ꏊ�A���@�A�p�X</ul>
-<b>���p�R�}���h</b>
-	<ul>char �ꏊ ���@ �p�X</ul>
-</p>
-<br><br>
-<p>
-�ꏊ�͈ȉ��̂R�ӏ�������܂��B
-<ul>
-<li>���i�܂���left�Al�j</li>
-<li>�����i�܂���center�Ac�j</li>
-<li>�E�i�܂���right�Ar�j</li>
-</ul>
-</p>
-<p>
-���@�͈ȉ��̂Q�p�^�[��������܂��B<br>
-�E�J�b�g�i�܂���cut�Ac�j
-	<ul>��u�ŃL������؂�ւ��܂��B</ul>
-�E�t�F�[�h�i�܂���fade�Af�j
-	<ul>�������ƃL�����摜���؂�ւ����@�ł��B</ul>
-</p>	
-
-<p>
-�L�����N�^�[�͓���png�A����gif�݂̂̎g�p���ł��܂��B<br>
-���ߏ��������Ă��Ȃ��摜�̏ꍇ�A�w�i�����߂���܂���B
-</p>
-
-<div class="ex">
-<pre>
-�i��)
-�y����z�u���A�r���r�����w������ˁ[���v
-���L�����A�����Adata/char/mikoto_kao_makka.png
-�y���Ձz�u�Q�I�H�v
-�y����z�u�l������Ȃ�Q�͂Ȃ�����B�\�\�����ɉ����B���Ȃ��������H�v
-�y���Ձz�u�����A�������������������������ĂȂ������I�I�v
-�y�H�H�z�u�\�\���˂����܂��I�v
-���L�����A�E�Adata/char/kuroko_neko_kuti.png
-�y���Ձz�u�����A���q���I�H�v
-�y���q�z�u�킩���Ă��܂��́H�@�����͂Q���P�S���A�킽�����Ƃ��o�l�̓��ł�����\�\����A���̃`���R���[�g�́c�c�v
-���L�����A�����Adata/char/mikoto_yuge_pusyuu.png
-�y���Ձz�u�������I�I�v
-���L�����A�E�Adata/char/kuroko_bikkuri.png
-�y���q�z�u�n�b�I�H�@�܁A�܂������̂킽�����ɁA�킽�����ɂ��������I�H�v
-
-</pre>
-</div>
-
-
-
-<hr>
-<a name="rm">
-<h2>�L����������</h2>
-
-<p>
-<b>�R�}���h</b>
-	<ul>���L���������A�ꏊ�A���@</ul>
-���p�R�}���h
-	<ul>rm �ꏊ ���@</ul>
-</p>
-<br><br>
-
-<p>
-�ꏊ�͈ȉ��̂R�ӏ�������܂��B
-<ul>
-<li>���i�܂���left�Al�j</li>
-<li>�����i�܂���center�Ac�j</li>
-<li>�E�i�܂���right�Ar�j</li>
-<li>�S���i�܂���all�Aa�j</li>
-</ul>
-</p>
-<br>
-<p>
-���@�͈ȉ��̂Q�p�^�[��������܂��B<br>
-�E�J�b�g�i�܂���cut�Ac�j
-	<ul>��u�ŃL�����������܂��B</ul>
-�E�t�F�[�h�i�܂���fade�Af�j
-	<ul>�������ƃL�����摜����������@�ł��B</ul>
-
-</p>
-
-<div class="ex">
-<pre>
-�i��)
-���L�����A�����Adata/char/kuroko_kao_makka.png
-�y���q�z�u���������o���܁A���������Ȃ�Ɓc�c�H�v
-�y���Ձz�u���Ⴂ���Ȃ��I�@�܂��z�c����������ꏏ�ɐQ�Ȃ��A���Č����������ł���v
-�y���q�z�u�c�c�ӂЂЂЂЂЁc�c�v
-�y���Ձz�u���낱�c�c�H�v
-�y���q�z�u���E�o�E���E�܂��[�[�[���I�I�v
-���L���������A����
-�\�\�΂Ӂ`�`����I�I
-�y���Ձz�u���A������I�@�z�c�ɉ����|���Ȃ��I�@����Ȃ����I�@�������I�I�v
-�y���q�z�u���o���܂��o���܂��o���܁[�[�[���v
-�y���Ձz�u�������b�I�@������I�H�@��ɃL�X����Ȃ��I�@�Ђ��A�݁A����������񂶂�Ȃ����I�v
-
-</pre>
-</div>
-
-
-<hr>
-
-</div>
-
-
-
-<div class="music">
-
-<h1>�����y�֌W</h1>
-
-<a name="bgm">
-<h2>�a�f�l��炷</h2>
-
-<p>
-<b>�R�}���h</b>
-	<ul>�����y�A�ꏊ</ul>
-<b>���p�R�}���h</b>
-	<ul>bgm �ꏊ</ul>
-</P>
-
-<p>
-�u���E�U�ɂ���čĐ��ł���t�@�C���̎�ނ��Ⴂ�܂��̂ŁA������mp3,ogg�t�@�C��������p�ӂ��Ă������Ƃ������߂��܂��B<br>
-�����Ԃ��[���C�J�[�́Aogg���Đ��ł��Ȃ��ꍇmp3���Amp3���Đ��ł��Ȃ��ꍇogg�t�@�C�����Đ����܂��B<br>
-��j<br>
-�����y�Adata/bgm/test.ogg<br>
-</p>
-
-<p>
-������IE�̏ꍇ�Aogg���Đ��ł��Ȃ��̂�test.mp3���Đ����܂��i�t�@�C��������ꍇ�j<br>
-�܂��a�f�l�͐�s���ă_�E�����[�h���Ȃ����߁A����ɂ���čĐ��̒x�����������܂��B<br>
-�Ȃ�ׂ��e�ʂ��������t�@�C���������߂��܂��B
-</p>
-<p>
-�u���E�U�̑Ή��t�H�[�}�b�g
-<ul>
-<li>IE9 : mp3</li>
-<li>Firefox : ogg</li>
-<li>chrome : mp3,ogg</li>
-</ul>
-</p>
-
-<div class="ex">
-<pre>
-�i��)
-�y�t�����z�u���d�킽���̏����[���I�@���o�����o�c�Q�[������[���I�v
-�y���ޑ��z�u�͂��c�c�񑩂����̂ˁA�킩�������B��������΂����́H�v
-�y�t�����z�u���э���āv
-���w�i�A���C�v�Adata/event/kanata_epuron_sugata.jpg
-�y���ޑ��z�u�\�\�n���o�[�O���ĈӊO�Ɠ���̂�ˁc�c�v
-�y�t�����z�u�c�c�ނӂӁc�c�v
-�y���ޑ��z�u����������ɋ߂Â��ĉ��H�@���Ă̒ʂ�܂���蒆�B�䏊�����񂾂���������ɍs���ĂȂ����v
-�y�t�����z�u�����炢���̂��B�\�\������v
-�y���ޑ��z�u������I�H�@�Ȃɕ������ā\�\�v
-�y�t�����z�u�c�c�������炪�o�c�Q�[������B���̂܂ܗ����𑱂��ĂāA���o�����B���������Ⴞ�߁v
-�y���ޑ��z�u�c�c�c�c��A�킩�������v
-
-�����y�Adata/bgm/sharara.mp3
-
-�y�t�����z�u�c�c���o�������Ă����ɂ����c�c�v
-�y���ޑ��z�u�c�c���c�c�v
-�y�t�����z�u�E�G�X�g���ׂ��ˁc�c�ӂӁc�c��̕��́c�c�v
-�y���ޑ��z�u��A��߂Ȃ����c���v
-�y�t�����z�u�킟�A���o������܂�����������H�@�\�\�O�������������v
-
-
-�i��Ғk�j
-�ϑz���\�����܂����i���j
-</pre>
-</div>
-
-
-<hr>
-<a name="musicstop">
-<h2>�a�f�l���~�߂�</h2>
-
-<p>
-<b>�R�}���h</b>
-	<ul>�����y�X�g�b�v</ul>
-<b>���p�R�}���h</b>
-	<ul>musicstop</ul>
-</p>
-
-<p>
-���ݍĐ�����Ă��鉹�y���X�g�b�v���܂��B<br>
-�Đ��̂Ƃ��́A���y�R�}���h�ōĐ����܂��B
-</p>
-
-<div class="ex">
-<pre>
-�i��)
-�y���ޑ��z�u��A��߂Ȃ����c���v
-�y�t�����z�u�킟�A���o������܂�����������H�@�\�\�O�������������v
-�y���ޑ��z�u����c�c�v
-
-�\�\��������I
-
-�y�N�h�z�u���ޑ�����A�������ܖ߂�܂������I �₵���v���������Ă��܂��Ă��߂�Ȃ����ł��v
-�y�t�����E���ޑ��z�u�c�ցH�v
-�y�N�h�z�u���{����Ɩ�܂ŗV�Ԃ��肾�����̂ł����A���p��������Ƃ��Ł\�\�v
-
-�����y�X�g�b�v
-
-�y�N�h�z�u�c�c�c�c�v
-�y�t�����z�u���A���[���ƁA���A����̓f�X�i�c�c�v
-���L�����A�����Adata/char/kudo_makka.png
-�y�N�h�z�u�͂���������[�[�[���I�H�v
-�y���ޑ��z�u�N�A�N�h�����t�J���v
-�y�N�h�z�u�O�}����̎肪���ޑ�����̂��m���̒��ɓ����ĂāA����ł��A����Ł\�\���I�v
-�y�N�h�z�u���̉��ޑ����񂪁A�L�A�L�X�����Ă��܂������[���I�H�v
-
-</pre>
-</div>
-
-<hr>
-<a name="se">
-<h2>���ʉ���炷</h2>
-
-<p>
-<b>�R�}���h</b>
-	<ul>���r�d�A�ꏊ</ul>
-<b>���p�R�}���h</b>
-	<ul>se �ꏊ</ul>
-</p>
-
-<p>	
-��������u���E�U�ɂ���čĐ��\�ȃt�H�[�}�b�g���Ⴄ���߁A��Ȃ��ꍇ������܂��B<br>
-���ʉ��͐�s���ă_�E�����[�h�����Ă��܂��B<br>
-�܂��A���[�v�͂��܂���B
-</p>
-
-</div>
-
-<div class="ex">
-<pre>
-�i��)
-�y���X���z�u�������A����I�v
-�y��z�u�����A�^���X�̔�₵�ɂ��Ă�낤�v
-�y���X���z�u�Ӗ����킩��܂������I�@����ł��c��炢�Ȃ����ȃb�I�v
-�y��z�u�݂���I�H�v
-
-���r�d�Adata/se/bakiii.ogg
-
-���w�i�A�t�F�[�h�Adata/bg/rouka.png
-�c�c�B
-�c�c�B
-�y���X���z�u������H�@����I�v
-�y��z�u�c�c�v
-�y���X���z�u��A��肷����������H�@���A�N�������ɂ���܂����ˁc�c�v
-�y��z�u�c�c�v
-�y���X���z�u�c�c�v
-�y���X���z�u������Ƃ����A����������v
-�\�\���A�ՂɂՂɂ�
-�y���X���z�u���񂲂���킢�z�b�y�ł���ˁc�c���c�c���c�c�v
-�\�\���ՂɂՂɂ��
-�y���X���z�u�c�c���A�����ɂȂ肻���ł���B���d���d���Ɓv
-�y���X���z�u�c�c�v
-�y���X���z�u�c�c�c�c�c�c�v
-�\�\���ՂɂՂɂ����ՂɂՂɂ��
-�y���X���z�u�����������I�@��߂��܂����`�v
-
-
-</pre>
-</div>
-
-
-<hr>
-
-
-<div class="jump">
-<h1>���W�����v</h1>
-<a name="goto">
-<h2>�V�i���I�̔C�ӂ̏ꏊ�ɃW�����v����</h2>
-<p>
-<b>�R�}���h</b>
-	<ul>���W�����v�A�n�^��</ul>
-<b>���p�R�}���h</b>
-	<ul>goto �n�^��</ul>
-</p>
-
-<p>
-�V�i���I�́w�n�^���x�̏ꏊ�ɃW�����v���܂��B<br>
-�n�^�Ƃ͌���Ζڈ�ł��B<br>
-�n�^�́w���x�ŋL�q���܂��B<br>
-��͈ȉ��ł��B<br>
-</p>
-<p>
-# �͂��O�P<br>
-�y���z�u�����܂ŃW�����v���܂����v<br>
-</p>
-<p>�܂���</p>
-<p>
-�����A�͂��O�P<br>
-�y���z�u�����܂ŃW�����v���܂����v<br>
-</p>
-</div>
-
-<div class="ex">
-<pre>
-�i��)
-�y�f�B�A�{���z�u���łɎ˒������ɓ����Ă���b�I�@���x�͓������Ȃ��b�I�v
-�y�f�B�A�{���z�w�L���O�E�N�����]���b�x�I
-���W�����v�Ahata01
-
-
-�h�h�h�h�h�c�c
-�y�f�B�A�{���z�u����Ŏ����Ăэ��ݎn�߂鎞�A���܂��͖ڂ��܂��Č��̓H�̐��������Ȃ��c�v
-�y�f�B�A�{���z�u���n�ȃI���̉ߋ����c�c�v
-�y�f�B�A�{���z�u���̎��_�ŃI���͏��z�����c�c�I�I�v
-�y�f�B�A�{���z�u���炦�b�I�@���͍Ăэ��ݎn�c�c�c�c�I�I�v
-���w�i�A�t�F�[�h�Adata/event/stand_change.jpg
-�y�f�B�A�{���z�u�ȁc�c�Ȃ񂾁I�H�@����́c�c�v
-�y�f�B�A�{���z�u�w��x���c�I�I�@�w�X�^���h�x���c�c�v
-�y�f�B�A�{���z�u�����킩��񂪂��炦�b�I�v
-���r�d�Adata/se/pikaaa.ogg
-�y�f�B�A�{���z�u���c���̋P���́w��x�̂������b�I�H�v
-�y�f�B�A�{���z�u�܁c�܂����I�@�����b�I�v
-�y�f�B�A�{���z�u���炦�b�I�@����Ďn������\�\�b�I�I�v
-
-
-# hata01
-���r�d�Adata/se/zukyuuuuuuuuuuuuuuun.ogg
-�y�f�B�A�{���z�u�o�J�ȁI�@�`�����I�b�c�̎˒��͋ߋ����p���[�^�A����Ă��Q���[�g�����x�̂͂��I�v
-�y�f�B�A�{���z�u���������H�v
-�y�|���i���t�z�u����́c�c�w�q���x���c�c�v
-
-</pre>
-</div>
-
-
-
-<hr>
-
-<div class="select">
-<h1>���I�����֌W</h1>
-<a name="select">
-<h2>�I������\������</h2>
-
-<p>
-<b>�R�}���h�i�S�s�܂Łj</b>
-	<ul>���I����</ul>
-	<ul>�I�����P �W�����v����n�^�P�i��؂�͔��p�X�y�[�X�j</ul>
-	<ul>�I�����Q �W�����v����n�^�Q�i��؂�͔��p�X�y�[�X�j</ul>
-	<ul>�I�����R �W�����v����n�^�R�i��؂�͔��p�X�y�[�X�j</ul>
-	<ul>�I�����S �W�����v����n�^�S�i��؂�͔��p�X�y�[�X�j</ul>
-	<ul>���I�����I���</ul>
-
-<b>���p�R�}���h�i�S�s�܂Łj</b>
-	<ul>select</ul>
-	<ul>�I�����P �W�����v����n�^�P�i��؂�͔��p�X�y�[�X�j</ul>
-	<ul>�I�����Q �W�����v����n�^�Q�i��؂�͔��p�X�y�[�X�j</ul>
-	<ul>�I�����R �W�����v����n�^�R�i��؂�͔��p�X�y�[�X�j</ul>
-	<ul>�I�����S �W�����v����n�^�S�i��؂�͔��p�X�y�[�X�j</ul>
-	<ul>selectend</ul>
-
-</p>
-
-<p>
-�ő�S�̑I������\�����邱�Ƃ��\�ł��B<br>
-�I������I�ԂƁA�Ή������n�^�܂ŃW�����v���܂��B<br>
-�I�����I���ӏ��ɂ́A�K���u���I�����I���v�܂��́uselectend�v���L�q���Ă��������B<br>
-</p>
-</div>
-
-<div class="ex">
-<pre>
-�i��)
-�y���Ձz�u��炦���I�v
-�y����z�u�������I�@��������I�@������ƁI�@���Ŗڂ̓G�ɂ���Ă�ł����A���[���v
-�y���Ձz�u���ݎ��̂��C�ɐH��Ȃ��̂���I�I�@����͔�����Ȃ��ł�����I�v
-�d���Ή΂̉s���񂵏R�肪�P���|����I
-�R�C�c�͔����Ȃ��ƃ��o�C�I
-
-
-���I����
-�E�ɔ����� migi_yoke
-���Ⴊ��Ŕ����� syagami_yoke
-���I�����I���
-
-
-�����Asyagami_yoke
-�y����z�u�����͂��Ⴊ��Ł\�\�v
-���������x�������B
-�R��͊��ɖڂ̑O�������B
-�y����z�u���H�v
-���̃}�k�P�Ȑ����悩�B����Ƃ��O�L�����Ƃ��������悾�����̂��B
-���̎��E�͈Ó]�����B
-���w�i�A���C�v�Adata/bg/game_over.png
-
-
-
-�����Amigi_yoke
-�y����z�u���Ԃ˂����I�v
-�@����R�肪���߂��I�@�܂Ƃ��ɋ����Ă������̍����炢�����Ă����ꂽ�����c�c�I
-�y���Ձz�u�Â���I�@���q�I�v
-�y���q�z�u�͂��A���o���܂��I�v
-���Ƌ��ɁA���̎΂ߏ�Ƀc�C���e�[���̏��������ꂽ�I
-�y���q�z�u�����������o���܂Ƀ`���b�J�C�����āI�@�����Ƃ��������͖ŎE�ł���I�I�v
-�y����z�u�ӂ������ė���̂͂������̂ق������Ă̂��I�@���ƁI�v
-���������o�b�N�X�e�b�v�B
-���������̂����Ƃ���ɗ������Ȃ���R�������A�n�ʂɒ��n���c�c�B
-�\�\�O�L�b
-�y���q�z�u����I�v
-�������������̂��A���n�Ɠ����Ƀo�����X��������B
-�y���q�z�u�����I�H�v
-�y����z�u���A�������I�H�v
-���������x���悤�Ƃ������ƁA�O�̂߂�ɓ|�ꂻ���ȏ����B
-�����������ɔ�э��񂾂̂��܂��������B����ɂ܂��������B
-�����̊炪�߂Â��Ă����A���ꂭ�炢�ɂ����v���Ă��Ȃ������B
-���w�i�A�J�b�g�Adata/event/kamizyou_kuroko_kiss.jpg
-�\�\�����
-�y����z�u�c�I�H�v
-�y���q�z�u�I�H�I�H�I�H�v
-�O�ƐO���\�\
-�d�Ȃ��Ă����I
-�y����z�u�c�c�c�c�c�c�c�c�v
-�y���q�z�u�c�c�c�c�c�c�c�c�v
-���̎q�炵���V�����v�[�̍��肪�����ށB
-�����Č��ɂ͏_�炩��������B
-���āI�I
-�y����z�u��������I�v
-�y���q�z�u�Ёc�Ђ₟�����[���I�H�v
-�Q�Ăė��ꂽ�I�I
-���𗧂ĂĂP���[�g���ȏ��u�ŗ��ꂽ�I
-�y����z�u���������������͎̂��̂��I�@�ȁA�Ȃ���������I�H�@�Ȃ��I�H�v
-�y���q�z�u�����������̂ŁA���A���ς܂���Ȃ��ł���b�b�b�I�I�@�����������o���܁A���̕s�͂��҂�S���҂Ɂ\�\�v
-���������ڐ��𑗂�����B
-�����ɂ͌�₪�����Ă���B
-�����Ă���̂����\�\
-�y���q�z�u���c�c�o�c�c���܁H�v
-�y���Ձz�u����c�c�������c�c�v
-�ۂ�ۂ�ƁA�ۂ�ۂ�ƁB
-�嗱�̗܂����ڂ�Ă����B
-�y���Ձz�u�������c�c�Ȃ�Łc�c�����Ă�񂾂�c�c�H�v
-�y����z�u���c�c�H�v
-�y���Ձz�u�b�I�I�v
-�\�\�_�b�I
-��u�̊Ԃ̂��ƁA��₪�삯�o�����B
-�y���q�z�u���A���o���܂��I�I�v
-
-
-�i��Ғk�j
-�M�������ĕ|���ł��ˁc�c�i����
-
-</pre>
-</div>
-
-
-
-
-<hr>
-
-
-<h1>���t���O�֌W</h1>
-<a name="flagset">
-<h2>�ϐ��̒l��ݒ肷��</h2>
-
-<p>
-<b>�R�}���h</b>
-	<ul>���ϐ��Z�b�g�A�t���O�̃��x��(A�`J)�A����</ul>
-<b>���p�R�}���h</b>
-	<ul>flagset �t���O�̃��x��(A�`J) ����</ul>
-</P>
-
-<p>
-A�`J�܂ł̂P�O�̕ϐ��ɁA������ݒ肵�܂��B<br>
-�t���O���������Ƃ����ꍇ�A</P>
-<p>���ϐ��Z�b�g�AA�A1</p>
-<p>�Ɛݒ肷��Ƃ悢�ł��B<br>
-�܂��A�t���O�̃��x���A�����͂ǂ�������p�ŋL�q���Ă��������B<br>
-</p>
-
-<div class="ex">
-<pre>
-
-�y���q�z�u������Ƃ��Ȃ��I�v
-�y����z�u�ȁA�Ȃ񂾂�I�H�v
-�y���q�z�u���o���܂�ǂ��Ȃ����I�v
-�y����z�u�c�c�v
-
-���I����
-����ǂ� heart_catch_mikoto
-����ǂ�Ȃ� heart_catch_kuroko
-���I�����I���
-
-�����Aheart_catch_mikoto
-flagset A 1
-�y����z�u�c�c�����B���Ƃ͉��ɔC����v
-�y���q�z�u�c�c�c�c�����A���o���܂�C���܂�����c�c�c�c�v
-���͑S���͂ŋ삯�o�����B
-��₪�Ȃ�ŋ����Ă����̂��H
-����͂킩��Ȃ��B
-����Ǖ����Ă����Ȃ��w���������B���܂�ɔ߂������Ȕw���������B
-
-�����Aheart_catch_kuroko
-flagset B 1
-�y����z�u�c�c�s���˂���v
-�y���q�z�u�Ȃ��ł��́I�H�v
-�y����z�u����́\�\�A���^�������Ă邩�炾�v
-�y���q�z�u���c�H�v
-�y����z�u�ӂ点�Ă���B�������ӂ��ċ�����邱�Ƃ���Ȃ����Ƃ��炢�킩���Ă�v
-�y���q�z�u�킩���Ă�̂ł�����c�c���I�v
-�y����z�u�\�\�����̂����Ŗڂ̑O�̏��̎q�������Ă���̂ɁA�u���čs���˂���A����ς��v
-
-
-</pre>
-</div>
-
-
-<hr>
-<a name="flagcal">
-<h2>�ϐ����v�Z����</h2>
-<p>
-<b>�R�}���h</b>
-	<ul>���t���O�v�Z�A�t���O�̃��x��(A�`J)�A�����A����</ul>
-<b>���p�R�}���h</b>
-	<ul>flagcal �t���O�̃��x�� ���� ����</ul>
-</p>
-<p>
-A�`J�܂ł̂P�O�̕ϐ��΂��A�v�Z���s���܂��B<br>
-�Ή����Ă���v�Z�͈ȉ��ł��B<br>
-</p>
-<ul>
-<li>�����Z(+)</li>
-<li>�����Z(-)</li>
-<li>����Z(/)</li>
-<li>�|���Z(*)</li>
-<li>��]�v�Z(%)�i���܂�����߂�v�Z�j</li>
-</ul>
-<p>�Ⴆ��</p>
-<p>flagcal A + 1</p>
-<p>���������ꍇ�AA�ɂP�������܂��B<br>
-�D���x���オ�����A�Ƃ������ꍇ�Ɏg�p�ł��܂��B<br>
-�ȉ��̂悤�ɕϐ��ɕϐ��̒l�Ōv�Z���邱�Ƃ��\�ł��B<br>
-flagcal A - B<br>
-���̏ꍇ�A�`����a�̒l�������܂��B<br>
-�܂��A�v�Z�͕������P�܂łł��B<br>
-�ȉ��̂悤�Ȃ��Ƃ͂ł��܂���</p>
-<p>�~�@flagcal A + 1 + 1</p>
-
-
-
-<div class="ex">
-<pre>
-�i��j
-
-�y����z�u���[���v
-�U������ƁA�J�̒�����l�삯��e�B
-�y���Ձz�u�c�c���H�v
-�܂����ǂ��Ă���Ƃ͎v��Ȃ������B
-�ǂ��Ă��Ă��炢�����Ȃ������B
-����Ȋ�����������Ȃ������B
-���ǁc�c�B
-flagcal A + 1
-�ǂ��Ă��Ă���Ċ����������B
-�{���Ɋ����������B
-�y����z�u�͂��A�͂��A�͂��c�c���ׁA�Ђ����v
-�y���Ձz�u�c�c���񂽂����v
-�����炵���B�܂Ƃ��Ɋ������Ȃ����炾�B
-�y����z�u���́c�c�Ȃ񂾁A�������̂��Ƃ����ǂ��v
-�y���Ձz�u�c�킩���Ă�c���B�悩��������Ȃ��c�c���̎q�Ɓc�c�L�X�ł��āv
-�~�܂����͂��̗܂������̋�����ł܂����ڂ�n�߂��B
-���̂����Ă��Ƃ��炢�킩���Ă�B
-�J�Ɨ܂ł�����͂����Ⴎ���Ⴞ�B
-�y����z�u�ق��A�n���J�`�B���̉J����֌W�˂���������Ȃ����ǁv
-flagcal A + 1
-�y���Ձz�u�c�c�󂯎���Ă�����v
-
-
-</pre>
-</div>
-
-
-
-
-
-<hr>
-
-<a name="if">
-<h2>���򂷂�</h2>
-<p>
-<b>�R�}���h</b>
-	<ul>�������A�t���O�̃��x���A�����A�����A�^�������ꍇ�ɔ�ԃn�^</ul>
-<b>���p�R�}���h</b>
-	<ul>if �t���O�̃��x�� ���� ���� �^�������ꍇ�ɔ�ԃn�^</ul>
-
-<p>�ȉ��̏����������g�p�ł��܂��B</p>
-<ul>
-<li>���i�C�R�[���j</li>
-<li>���i�`��菬�����j</li>
-<li>���i�`���傫���j</li>
-<li>�����i�`�ȉ��j</li>
-<li>�����i�`�ȏ�j</li>
-<li>�I���i�`�ł͂Ȃ��ꍇ�j</li>
-</ul>
-<p>
-�������^�������ꍇ�A�L�q�����n�^�̈ʒu�ɔ�т܂��B
-�������U�������ꍇ�A���̍s�����s���܂��B
-</p>
-<p>��j</P>
-<p>if A = 1 hata1<br>
-�`</p>
-
-<p>
-������A��1�������ꍇ�Ahata1�̂Ƃ���܂ŃW�����v���܂��B<br>
-A������ȊO�̏ꍇ�A���̍s�����̂܂܎��s���܂��B<br>
-�ϐ��ƕϐ����r���邱�Ƃ��\�ł��B<br>
-if A > B hata01<br>
-���̏ꍇ�́A�`�̕ϐ����a�̕ϐ����傫���ꍇ�Ahata01�ɃW�����v���܂��B<br>
-�܂��A�����͈�܂łł��B�����̏����͐ݒ�ł��܂���<br>
-</p>
-
-
-
-
-<div class="ex">
-<pre>
-�i��j
-
-���ꂩ��ꃖ���̎��Ԃ��߂����B
-if A >= 10 mikoto_happy_end
-���x�݁B
-�N�����Ȃ��Z��̑O�ɂ͌����ꂽ�q�����炵����݂������ė����Ă����B
-�y���q�z�u���Ă��܂������B�͂��A���ٓ��v
-�y����z�u���������ȁA���q�v
-�\�\�ׂ���
-�y����z�u������A�Ȃ�Œ@���񂾂���I�v
-�y���q�z�u�����A���������ł���˂��I�@��A�킽�����͂����M�����s�������ȃp���΂���H�ׂĂ��ĉ������������Ă��邾���ł���I�v
-�y����z�u�T���L���ȁv
-���L�����A�����A�t�F�[�h�Adata/char/kuroko_makka.png
-�y���q�z�u�`�`�`���v
-�y����z�u���Ă��A�R��Ȃ����ނȂ��I�v
-�y���q�z�u�c�c�ӂ�B����A�H�ׂɍs���܂��傤�v
-�y����z�u�������A�D���Ȃ������₪���āc�c�v
-�y���q�z�u���̑O�Ɂv
-�y����z�u�񂾂�v
-�y���q�z�u�킽�����A�������̂��ƂłЂǂ������܂�����v
-�y����z�u���ꂭ�炢�ł���H�v
-�y���q�z�u�����Ď���ɂ͒N�����Ȃ��A�Ɓv
-�y����z�u������H�v
-�y���q�z�u���E�ӁA�ł���v
-�y����z�u���Ӂc�c�H�v
-�y���q�z�u���ӂ������Ă��������܂��v
-���q���y���ڂ���A����˂��o���Ă����B
-���Ȃ�Ăܐ旧�����B�����������Ⴂ����ȁB
-���͂P�T�ԑO�ɔޏ��ɂȂ��������ȏ��̎q��
-���w�i�A�t�F�[�h�Adata/event/kuroko_happy_end.jpg
-���x�͋��R�ł͂Ȃ��A���ӂ̂��������L�X�������B
-
-
-�����Amikoto_happy_end
-���j���B
-�L���l�Y�~���������𖲂̍��ɏo�}���Ă��ꂽ�B
-�����A�V���n�ւ���Ă����̂��B
-���̓J�b�v�����炯���B
-�c�c���ł͉����������̒��̈�g���Ƃ������Ƃ����t�������Ă������B
-�y���Ձz�u�ӂ�ӂ�`�v
-�y����z�u���ՁA���ԂȂ����v
-�y���Ձz�u�ӂ�ӂ�`�ӂ�ӂ�`�v
-�\�\�h����
-�y�L���l�Y�~�z�u�n�n�`�b�I�@�Y�e���I�v
-���Ղ��Ԃ������L���l�Y�~���΂��Ȃ���R�P���B
-�d���Ȃ������N�����Ă��B
-���Ղ͂Ƃ����Ɓc�c�B
-�y���Ձz�u�ӂ�ӂ�`�ӂ��`�v
-�c�c�B
-���Ղ͐g���S���s�����ӂ�ӂ킵�Ă����B
-���łɂӂ�ӂ���ɂ����o���Ă���B
-�Ⴆ��̂Ȃ�΃A�����낤���B
-�����鉳���B
-�c�c�B
-���[���A��₳�[��A�����ɖ߂��Ă��Ă������[���B
-�y����z�u�����A�ӂ�ӂ킵�Ă�Ɩ��q�ɂȂ邼�v
-����q���ł݂�
-�y���Ձz�u�\�\�b�I�v
-�s�L���I�Ɖ��𗧂ĂĔ��Ղ��ł܂����B��͐^���Ԃ��B
-�y����z�u�ق�A�s�����v
-�y���Ձz�u�E�A�E���v
-�y����z�u�c�c�v
-�����Ƃ��ɉE��ƉE���������ɏo�Ă���̂ł����B
-���ɂ��֐߂���@�B�����������Ȃ̂ł����B
-���͂�����`�r�h�l�n��A��Ė��̍��ɗ����܂����̂��낤���H
-
-
-
-</pre>
-</div>
-
-
-
-
-
-<hr>
-<h1>�����̂ق�</h1>
-<a name="wait">
-<h2>�҂����Ԃ����</h2>
-<p>
-<b>�R�}���h</b>
-	<ul>���E�F�C�g�A�҂����ԁims�j</ul>
-<b>���p�R�}���h</b>
-	<ul>wait �҂�����(ms)</ul>
-</p>
-<p>
-�w�莞�Ԃ������̍s�̎��s��҂��܂��B
-���Ԃ�ms�Őݒ肵�܂��B1000ms�łP�b�ł��B
-
-</p>
-
-
-
-<div class="ex">
-<pre>
-�i��j
-
-�y�^�l�z�u���炦���I�I�v
-�y����z�u�����邩���I�I�v
-
-���r�d�Adata/se/bakiii.ogg
-���w�i�A�J�b�g�Adata/bg/white.jpg
-���E�F�C�g�A100
-���w�i�A�J�b�g�Adata/bg/black.jpg
-���E�F�C�g�A100
-
-�y�^�l�z�u�������A���ꂭ�炢�������ςЂ�܂˂����v
-�y����z�u������O�ł��낤�B���͂����炩��s�����v
-
-</pre>
-</div>
-
-
-
-<hr>
-<h2>�R�����g�s</h2>
-<p>
-<a name="comment">
-<b>�R�}���h</b>
-	<ul>// �R�����g�i�R�����g�O�ɔ��p�X�y�[�X������j</ul>
-</p>
-<p>
-// ����n�܂�s�̓R�����g�Ƃ݂Ȃ���A���s���܂���B
-</p>
-
-
-
-<div class="ex">
-<pre>
-�i��j
-
-// ���̍s�̓R�����g�B
-�y����z�u�Ȃ��A�C���f�b�N�X�B�b�𕷂��Ă����v
-�y�C���Ȃ�Ƃ��z�u���_���I�I�@�g�[�}�̏����炵���I�I�v
-�y����z�u������Ⴄ�񂾂��āI�v
-
-// ���̂ւ�ɉ摜�����ꂽ��ǂ����ȁH�i�R�����g�ł��j
-
-�y�C���Ȃ�Ƃ��z�u�K�u�b�I�I�v
-�y����z�u���႟���������������[�[�[���I�I�v
-</pre>
-</div>
-
-<a href="index.html">���߂�</a>
-
-</td></tr></table>
-</center>
-
-</div>
 
 </body>
 </html>

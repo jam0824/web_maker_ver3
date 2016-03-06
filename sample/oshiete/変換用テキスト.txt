@@ -5,3 +5,4 @@
 ^l—§‚¿ŠG‚P>sample/oshiete/char/masato_l.png
 ^l—§‚¿ŠG‚Q>sample/oshiete/char/masato_l02.png
 ™•À—§‚¿ŠG‚P>sample/oshiete/char/suginami_l.png
+‘ä–{‰æ‘œ>sample/oshiete/char/daihon.png

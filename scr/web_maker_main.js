@@ -121,14 +121,17 @@ window.onload = function () {
                                          'setting');
         game.rootScene.addEventListener(Event.TOUCH_START, function (e) {
             //オプション表示中以外でクリックイベント
-            if(option_status != "display") clickSelector();
+            if(option_status != "display"){
+                clickSelector();
+            }
         });
+         
         //メインを登録
         game.rootScene.addEventListener('enterframe', main);
         clickSelector();
     };
     game.start();
-
+    window.scrollTo(0,1);
     //option_load();
 };
 
@@ -466,7 +469,10 @@ function transrateCommand(command) {
         case "■＃":
             str_tmp = "#";
             break;
-         case "■デバッグ":
+        case "＃":
+            str_tmp = "#";
+            break;
+        case "■デバッグ":
             str_tmp = "debug";
             break;
 
