@@ -15,7 +15,6 @@ var preload_turn_num   = 0;		//先行画像ロードの順番
 
 var click_flag         = true;		//Click control
 var timer_cnt          = 0;		//Use wait command
-var option_status      = 'hidden_all';	//option display control. It has many status.
 
 var data               = new Array();
 var sel_wnd            = new Array();
@@ -120,10 +119,8 @@ window.onload = function () {
                                          SYS_DATA_PATH + 'setting.png',
                                          'setting');
         game.rootScene.addEventListener(Event.TOUCH_START, function (e) {
-            //オプション表示中以外でクリックイベント
-            if(option_status != "display"){
-                clickSelector();
-            }
+        clickSelector();
+            
         });
          
         //メインを登録

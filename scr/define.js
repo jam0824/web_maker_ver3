@@ -62,7 +62,7 @@ var SEL_PADDING        = 10;
 
 var TIME_NUM           = 1;
 
-var SAVE_MAX           = 5;			//セーブ領域最大値
+var SAVE_MAX           = 6;			//セーブ領域最大値
 var SAVE_EVENTFLAG     = 0;
 var SAVE_CHAR_L        = 1;
 var SAVE_CHAR_C        = 2;

@@ -48,36 +48,6 @@ function setVolume(volumeString) {
 }
 
 
-
-
-
-
-////////////////////////////////////////////////////////
-//表示領域作成。type = save or load
-function makeSaveList(no, type) {
-    var str_tmp = "";
-    var str_msg = "";
-    str_tmp = "save_data" + no;
-
-    try {
-        var array_tmp = JSON.parse(localStorage.getItem(str_tmp));
-    } catch (e) {
-        storageError();
-        return;
-    }
-    //str_msg += '<div onClick="' + type + '(\''+str_tmp+'\')">';
-    if (array_tmp == null) {
-        str_msg += "なし";
-    } else {
-        str_msg += str_tmp + "<br>"
-                + array_tmp['timestamp'] + "<br>"
-                + array_tmp['msg'];
-    }
-
-    return str_msg;
-}
-
-
 ///////////////////////////////////////////////選択肢選択モード
 //選択肢
 function selectItem(sel_wnd, data, lineNo) {

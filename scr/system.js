@@ -128,40 +128,38 @@ function switchingRead() {
 //////////////////////////////////////
 //オプションを表示
 function displayOption() {
+     click_flag = false;
+     var modalBg = new MODALBG(GAME_WIDTH, GAME_HEIGHT);
+     modalBg.option = makeOptionItem(modalBg);
+}
 
-    if ((option_status === 'hidden_all') || (option_status === 'close_save')) {
-        click_flag = false;
-        option_status = 'display';
-        var w = 200;
-        var x = 95;
-        var y = 50;
-        var option_item = new Array();
-        option_item['load'] = new OPTIONBUTTON(x, -100, x, y, w, w,
-                                               'vy', 'load.png', 'load');
-        option_item['save'] = new OPTIONBUTTON(-100, y, x + w + 50, y, w, w,
-                                               'vx', 'save.png', 'save');
-        option_item['backlog'] = new OPTIONBUTTON(x, -100, x, y + w + 50, w, w,
-                                                  'vy', 'backlog.png', 'backlog');
-        option_item['sound'] = new OPTIONBUTTON(-200, y + w + 50, x + w + 50, y + w + 50, w, w,
-                                                'vx', 'sound_on.png', 'sound_mode');
-        option_item['effect'] = new OPTIONBUTTON(x, -100, x, y + (w + 50) * 2, w, w,
-                                                 'vy', 'effect_on.png', 'effect_mode');
-        option_item['read'] = new OPTIONBUTTON(-300, y + (w + 50) * 2, x + w + 50, y + (w + 50) * 2, w, w,
-                                               'vx', 'read_on.png', 'read_mode');
-
-    } else {
-        click_flag = true;
-        option_status = 'hidden_all';
-    }
+/*************************
+ * オプションアイテムを作成する
+ * @param {type} modalBg 親モーダル
+ * @returns {Array|makeOptionItem.option_item}
+ */
+function makeOptionItem(modalBg) {
+    var w = 200;
+    var x = 95;
+    var y = 50;
+    var option_item = new Array();
+    option_item['load'] = new OPTIONBUTTON(x, y, w, w, 'load.png', 'load', modalBg);
+    option_item['save'] = new OPTIONBUTTON(x + w + 50, y, w, w, 'save.png', 'save', modalBg);
+    option_item['backlog'] = new OPTIONBUTTON(x, y + w + 50, w, w, 'backlog.png', 'backlog', modalBg);
+    option_item['sound'] = new OPTIONBUTTON(x + w + 50, y + w + 50, w, w, 'sound_on.png', 'sound_mode', modalBg);
+    option_item['effect'] = new OPTIONBUTTON(x, y + (w + 50) * 2, w, w, 'effect_on.png', 'effect_mode', modalBg);
+    option_item['read'] = new OPTIONBUTTON(x + w + 50, y + (w + 50) * 2, w, w, 'read_on.png', 'read_mode', modalBg);
+    return option_item;
 }
 
 ///////////////////////////////////////
 /////////////////////////////////////
-//セーブ領域を書き込む
-function displaySaveArea(mode) {
+//セーブとロード領域を書き込む
+function displaySaveArea(mode, modalBg) {
     var w = 200;
     var x = 95;
     var y = 50;
+    var margin = 50;
     var save_item = new Array();
     var type = "";
     var path;
@@ -174,34 +172,55 @@ function displaySaveArea(mode) {
         path = 'load_base.png';
     }
 
-    for (var i = 0; i < 6; i++) {
-        var init_x = (i % 2 === 0) ? x : x + w + 50;
+    for (var i = 0; i < SAVE_MAX; i++) {
+        var init_x = (i % 2 === 0) ? x : x + w + margin;
         var str_msg = makeSaveList(i, type);
         var save_name = "save_data" + i;
-        save_item[i] = new SAVEWINDOW(init_x, -100, init_x, y, w, w,
-                                      'vy', path, type, str_msg, save_name);
+        save_item[i] = new SAVEWINDOW(init_x, y, w, w,
+                                      path, type, str_msg, save_name, modalBg);
 
         //２段目の処理
         if (i % 2 === 1) {
-            y += w + 50;
+            y += w + margin;
         }
 
     }
 
-    return;
+    return save_item;
 }
 /////////////////////////////////localに保存
-function save(save_name) {
+function save(save_name, modalBg) {
     if (!confirm(save_name + "にセーブをします。よろしいですか？"))
         return;
 
     save_len_make(save_name);
-
     alert("ゲームのデータを保存しました。\n");
-    option_status = 'close_save';	//セーブウィンドウをクローズ
-    displayOption();				//オプションを表示
+    modalBg.remove();
 
     return;
+}
+////////////////////////////////////////////////////////
+//表示領域作成。type = save or load
+function makeSaveList(no, type) {
+    var str_tmp = "";
+    var str_msg = "";
+    str_tmp = "save_data" + no;
+
+    try {
+        var array_tmp = JSON.parse(localStorage.getItem(str_tmp));
+    } catch (e) {
+        storageError();
+        return;
+    }
+    //str_msg += '<div onClick="' + type + '(\''+str_tmp+'\')">';
+    if (array_tmp == null){
+        str_msg += "なし";
+    } else {
+        str_msg += str_tmp + "<br>"
+                + array_tmp['timestamp'] + "<br>"
+                + array_tmp['msg'];
+    }
+    return str_msg;
 }
 
 ///////////////////////////coockieに保存するときの文字列を作成
@@ -270,7 +289,7 @@ function readMake() {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////ロード
 
-function saveDataLoad(save_name) {
+function saveDataLoad(save_name, modalBg) {
 
     try {
         var s = JSON.parse(localStorage.getItem(save_name));
@@ -333,7 +352,7 @@ function saveDataLoad(save_name) {
     }
    
     kidoku_load(s['kidoku']);
-    option_status = 'hidden_all';
+    modalBg.remove();
     clickSelector();
     sub_screen.redraw("fade");
     return;

@@ -348,45 +348,63 @@ var IMGBUTTON = enchant.Class.create(enchant.Sprite, {
 });
 
 ///////////////////////////////////////////////////////////////////////
+//モーダル背景クラス
+var MODALBG = enchant.Class.create(enchant.Sprite, {
+    initialize: function (w, h) {
+
+        enchant.Sprite.call(this, w, h);
+        this.backgroundColor = "rgba(0, 0, 0, 0.5)";
+        this.option = new Array();
+        this.saveItem = null;
+        this.x = 0;
+        this.y = 0;
+
+        //タッチされた時の処理
+        this.addEventListener('touchstart', function (e) {
+            this.remove();
+        });
+        game.rootScene.addChild(this);
+    },
+    remove: function () {
+        if(this.saveItem != null){
+            for (key in this.saveItem) {
+                this.saveItem[key].remove();
+            }
+        }
+        for (key in this.option) {
+            this.option[key].remove();
+        }
+        click_flag = true;
+        game.rootScene.removeChild(this);
+        delete this;
+    }
+});
+
+///////////////////////////////////////////////////////////////////////
 //オプションボタンクラス
 var OPTIONBUTTON = enchant.Class.create(enchant.Sprite, {
-    initialize: function (init_x, init_y, x, y, w, h,
-                            move_mode, path, mode) {
+    initialize: function (x, y, w, h, path, mode, modalBg) {
 
         enchant.Sprite.call(this, w, h);
         this.p_path = path;
         this.image = game.assets[getOptionPath(path, mode)];
-        this.move_mode = move_mode;	//移動モード
-        this.toX = x;				//到着予定場所
-        this.toY = y;				//到着予定場所
-        this.mode = mode;			//load,saveなどのモード
-        this.move_flag = 0;			//移動制御フラグ
-        //横からくるモード
-        if (this.move_mode === "vx") {
-            this.x = init_x;
-            this.y = y;
-            this.vx = 60;
-            this.vy = 0;
-        }
-        //縦からアニメーションするモード
-        else {
-            this.x = x;
-            this.y = init_y;
-            this.vx = 0;
-            this.vy = 70;
-        }
-
+        this.modalParent = modalBg;
+        this.mode = mode;
+        this.x = x;
+        this.y = y;
+        this.saveItem = new Array();
+         
 
         //タッチされた時の処理
         this.addEventListener('touchstart', function (e) {
             switch (this.mode) {
                 case "load":
-                    option_status = 'hidden';
-                    displaySaveArea(this.mode);
+                    this.saveItem = displaySaveArea(this.mode, modalBg);
+                    this.modalParent.saveItem = this.saveItem;
                     break;
                 case "save":
-                    option_status = 'hidden';
-                    displaySaveArea(this.mode);
+                    this.saveItem = displaySaveArea(this.mode, modalBg);
+                    this.modalParent.saveItem = this.saveItem;
                     break;
                 case "backlog":
                     drawBackLog(backLog);
@@ -412,45 +430,6 @@ var OPTIONBUTTON = enchant.Class.create(enchant.Sprite, {
             }
         });
 
-        //アニメーション設定
-        this.addEventListener('enterframe', function () {
-            if (this.move_flag === 0) {
-                this.x += this.vx;
-                this.y += this.vy;
-            }
-            //消すときの動作
-            if (this.move_flag === 2) {
-                this.x -= 70;
-            }
-
-            //目的地に到着したらモードを変更する。
-            if ((this.move_mode === "vx") && (this.x >= this.toX)) {
-                this.x = this.toX;
-                this.move_flag = 1;
-            } else if ((this.move_mode === "vy") && (this.y >= this.toY)) {
-                this.y = this.toY;
-                this.move_flag = 1;
-            }
-
-            //消す時
-            if ((this.move_flag === 2) && (this.x <= -100)) {
-                this.remove();
-            }
-
-            //もし終了だったら
-            if ((option_status === 'hidden')
-                    && (this.mode !== 'save_wnd')
-                    && (this.mode !== 'load_wnd')) {
-
-                this.move_flag = 2;
-            }
-            //もし終了だったら
-            if (option_status === 'hidden_all') {
-                this.move_flag = 2;
-            }
-        });
-
-
         game.rootScene.addChild(this);
     },
     remove: function () {
@@ -461,10 +440,10 @@ var OPTIONBUTTON = enchant.Class.create(enchant.Sprite, {
 ////////////////////////////////////////////////////////////////////////
 //オプションクラスを継承して作成
 var SAVEWINDOW = enchant.Class.create(OPTIONBUTTON, {
-    initialize: function (init_x, init_y, x, y, w, h,
-                           move_mode, path, mode, msg, save_name) {
-        OPTIONBUTTON.call(this, init_x, init_y, x, y, w, h,
-                          move_mode, path, mode);
+    initialize: function (x, y, w, h,
+                           path, mode, msg, save_name, modalBg) {
+        OPTIONBUTTON.call(this, x, y, w, h,
+                          path, mode, modalBg);
 
         this.msg = msg;
         this.save_name = save_name;
@@ -479,24 +458,12 @@ var SAVEWINDOW = enchant.Class.create(OPTIONBUTTON, {
         this.sel_label.width = w - this.f_size;
         this.sel_label.text = msg;
 
-
-        this.addEventListener('enterframe', function () {
-            this.sel_label.x = this.x + 5;
-            this.sel_label.y = this.y + 5;
-            this.sel_label.text = msg;
-
-            //セーブウィンドウのみのアニメーションスイッチ
-            if (option_status === 'close_save') {
-                this.move_flag = 2;
-                this.sel_label.text = "";
-            }
-        });
         //ラベルにもイベントリスナー追加（ラベル上をクリックしても反応しないため
         this.addEventListener('touchstart', function (e) {
             if (this.mode === 'save_wnd')
-                save(save_name);
+                save(save_name, modalBg);
             if (this.mode === 'load_wnd') {
-                saveDataLoad(save_name);
+                saveDataLoad(save_name, modalBg);
                 loadPreload(game, data, dataSet, game_status['event_flag']);	//先行ロード
             }
         });
