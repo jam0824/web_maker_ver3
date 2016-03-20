@@ -136,7 +136,7 @@ var SUBSCREEN = enchant.Class.create(enchant.Sprite, {
         } else {
             this.image = suf;
         }
-
+        suf = null;
         this.animationFlag = howto;
 
     },

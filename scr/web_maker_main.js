@@ -214,6 +214,7 @@ function mainEvent() {
         case "select":
             sel_wnd = selectItem(sel_wnd, data, game_status['event_flag']);
             game_status['skip_mode'] = false;	//スキップ一旦ストップ
+            game_status['event_flag']--;        //saveの時のために-1しとく
             click_flag = false;
             break;
 
@@ -254,6 +255,7 @@ function mainEvent() {
 
             //コマンドではないならメッセージ表示
         default:
+            if(sel_wnd != null) deleteSelect();     //セレクト保存時の対策
             msg_wnd.text(data[game_status['event_flag']]);
             backLog += data[game_status['event_flag']] + "<br>";   //バックログ保管
             

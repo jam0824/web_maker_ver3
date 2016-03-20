@@ -175,7 +175,7 @@ function displaySaveArea(mode, modalBg) {
     for (var i = 0; i < SAVE_MAX; i++) {
         var init_x = (i % 2 === 0) ? x : x + w + margin;
         var str_msg = makeSaveList(i, type);
-        var save_name = "save_data" + i;
+        var save_name = "DATA " + i;
         save_item[i] = new SAVEWINDOW(init_x, y, w, w,
                                       path, type, str_msg, save_name, modalBg);
 
@@ -204,7 +204,7 @@ function save(save_name, modalBg) {
 function makeSaveList(no, type) {
     var str_tmp = "";
     var str_msg = "";
-    str_tmp = "save_data" + no;
+    str_tmp = "DATA " + no;
 
     try {
         var array_tmp = JSON.parse(localStorage.getItem(str_tmp));

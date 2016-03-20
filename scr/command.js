@@ -59,7 +59,7 @@ function selectItem(sel_wnd, data, lineNo) {
     var originlineNo = lineNo;
 
     lineNo++;
-
+    if(sel_wnd != null) deleteSelect(); //セレクト前保存対策
     for (var i = 0; i < SEL_MAX + 1; i++) {
         var d_cmd = data[lineNo].split(" ");		//スペース区切り
         //、区切りだった場合
@@ -91,13 +91,19 @@ function selectItem(sel_wnd, data, lineNo) {
 function execSelect(hata) {
     click_flag = true;
 
-    for (var i = 0; i < sel_wnd.length; i++) {
-        sel_wnd[i].remove();
-    }
+   deleteSelect();
     sel_wnd = new Array();
 
     var ok_flag = goto_return(hata);
     repeat_flag = true;
+}
+
+////////////////////////////////////////////
+//選択肢削除
+function deleteSelect(){
+    for (var i = 0; i < sel_wnd.length; i++) {
+        sel_wnd[i].remove();
+    } 
 }
 
 /////////////////////////////////////////////////////////////////wait
