@@ -13,6 +13,7 @@ var CHAR_LEFT_OFFSET   = -50;      //左側に表示されるキャラの位置補正
 var CHAR_RIGHT_OFFSET  = 50;       //右側に表示されるキャラの位置補正
 
 
+
 ////////////////////////////////////////////////////////////////////////
 
 var SYS_DATA_PATH      = "sys/";   //データフォルダのパス
@@ -21,7 +22,9 @@ var PRELOAD_MAX        = 20;       //Max number of preload.
 var font               = "'ＭＳ ゴシック'";
 
 var USER_VAR_MAX       = 26;       //Max size of user varibles.
-var SEL_MAX            = 4;
+var SEL_MAX            = 10;
+var SEL_WIDTH          = 500;      //セレクトボックスの幅
+var SEL_HEIGHT         = 40;       //セレクトボックスの高さ
 
 var BG_HOWTO           = 1;			//コマンドＢＧの方法
 var BG_PATH            = 2;			//コマンドＢＧのパス

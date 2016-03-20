@@ -277,9 +277,9 @@ var MSGWINDOW = enchant.Class.create(enchant.Sprite, {
 ///////////////////////////////////////////////////////////////////////
 //選択肢表示クラス
 var SELWINDOW = enchant.Class.create(enchant.Sprite, {
-    initialize: function (x, y, msg, hata) {
+    initialize: function (x, y, w, h, msg, hata) {
 
-        enchant.Sprite.call(this, 500, 40);
+        enchant.Sprite.call(this, w, h);
         this.image = game.assets[SYS_DATA_PATH + 'select_wnd.png'];
         this.x = x;
         this.y = y;

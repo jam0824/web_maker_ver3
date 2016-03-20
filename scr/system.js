@@ -133,7 +133,7 @@ function displayOption() {
      modalBg.option = makeOptionItem(modalBg);
 }
 
-/*************************
+/******************************************************************
  * オプションアイテムを作成する
  * @param {type} modalBg 親モーダル
  * @returns {Array|makeOptionItem.option_item}
@@ -195,7 +195,7 @@ function save(save_name, modalBg) {
 
     save_len_make(save_name);
     alert("ゲームのデータを保存しました。\n");
-    modalBg.remove();
+    modalBg.remove();   //親モーダルごと破棄
 
     return;
 }
@@ -352,7 +352,7 @@ function saveDataLoad(save_name, modalBg) {
     }
    
     kidoku_load(s['kidoku']);
-    modalBg.remove();
+    modalBg.remove();   //親モーダルごと破棄
     clickSelector();
     sub_screen.redraw("fade");
     return;

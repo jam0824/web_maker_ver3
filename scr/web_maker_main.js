@@ -7,7 +7,7 @@ var main_screen;
 var sub_screen;
 var debug_wnd;
 
-var VERSION            = "ver3.0";	//バージョン情報
+var VERSION            = "ver1.0";	//バージョン情報
 var DEBUG_MODE         = false;		//デバッグモード
 var read_flag          = new Array();	//Read flags
 var preload_flag       = false;		//画像ロード中にロード発生で失敗するのでロックをかける
@@ -97,20 +97,7 @@ window.onload = function () {
             isAudioLoadStart = false;
         }
     });
-    box.addEventListener("mousedown", function (e) {
-        var str = "";
-        // 押しているボタンに応じて処理を切り替える
-        // ここで2の時に独自のコンテキストメニューを表示したりする
-        switch (e.button) {
-           
-            case 2 :
-                displayOption();
-                break;
-        }
-
-        
-
-    }, false);
+   
     game.onload = function () {
         main_screen = new MAINSCREEN();
         sub_screen = new SUBSCREEN(main_screen);

@@ -52,7 +52,9 @@ function setVolume(volumeString) {
 //‘I‘ðŽˆ
 function selectItem(sel_wnd, data, lineNo) {
     var isOk = false;
-    var x = 70;
+    var width = SEL_WIDTH;
+    var height = SEL_HEIGHT;
+    var x = Math.floor((GAME_WIDTH - width) / 2);
     var y = 0;
     var originlineNo = lineNo;
 
@@ -70,7 +72,7 @@ function selectItem(sel_wnd, data, lineNo) {
             break;
         }
         y = (i * 80) + 50;
-        sel_wnd[i] = new SELWINDOW(x, y, d_cmd[SEL_MSG], d_cmd[SEL_HATA]);
+        sel_wnd[i] = new SELWINDOW(x, y, width, height, d_cmd[SEL_MSG], d_cmd[SEL_HATA]);
         lineNo++;
     }
 
