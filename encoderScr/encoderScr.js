@@ -65,7 +65,6 @@ function saveStorage() {
 ///////ロード
 function loadStorage() {
     document.getElementById("exchange_list").value = localStorage.getItem("key_exchange_list");
-    alert("ロードしました。");
 }
 
 ////////////////////////////////////////////////////////////////////////////////
