@@ -379,9 +379,23 @@ function bgmStart(d_cmd) {
         if (audio != null) {
             audio.pause();
         }
-        if ((env == "mobilesafari")) {
+        if (env == "mobilesafari"){
             isAudioLoadStart = true;
-        } else {
+        }
+        else if(userAgent.indexOf('android') != -1){
+        	alert("tst");
+            game.load(
+                game_status['bgm'], 
+                "AndroidBGM",
+                function(){
+                    if(androidBgm != null) bgmStop(null);
+                    androidBgm = game.assets["AndroidBGM"];
+                    androidBgm.play();
+                    androidBgm.src.loop = true;
+                }
+            );
+        }
+        else {
             mobileeSafariBGMLoad(game_status['bgm']);
         }
 
@@ -390,11 +404,19 @@ function bgmStart(d_cmd) {
 }
 
 
+
 ///////////////////////////////////////////çƒê∂Çí‚é~
 function bgmStop(d_cmd) {
-   
-    audio.pause();
-   
+
+    if (game_status['sound_mode']) {
+        if(userAgent.indexOf('android') != -1){
+            androidBgm.stop();
+        }
+        else{
+           audio.pause(); 
+        }
+    }
+    
     return;
 }
 

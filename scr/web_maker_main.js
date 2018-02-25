@@ -22,8 +22,10 @@ var dataSet            = new Array();  //BG,Char,SEのURL、ロードフラグ保持用
 var backLog            = "";           //バックログ保管用
 
 var env                = enchant.ENV.BROWSER;
+var userAgent          = getUserAgent();
 var audio              = null;         //iOS用audio
 var isAudioLoadStart   = false;        //trueになったらタッチイベントでBGMロード
+var androidBgm;
 
 //保存に使う変数群
 var game_status = {
@@ -92,12 +94,13 @@ window.onload = function () {
 
     //iOS音声用のタッチイベント
     box.addEventListener('touchstart', function (e) {
-        if ((env == "mobilesafari") && (isAudioLoadStart)) {
+        if ((env == "mobilesafari")&& (isAudioLoadStart)) {
             mobileeSafariBGMLoad(game_status['bgm']);
             isAudioLoadStart = false;
         }
     });
    
+    
     game.onload = function () {
         main_screen = new MAINSCREEN();
         sub_screen = new SUBSCREEN(main_screen);
@@ -491,6 +494,13 @@ function mobileeSafariBGMLoad(bgmPath) {
         audio.play();
     }, false);
 
+}
+
+////////////////////////////
+//ユーザーエージェント取得
+
+function getUserAgent(){
+	return window.navigator.userAgent.toLowerCase();
 }
 
 

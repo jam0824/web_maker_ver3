@@ -97,9 +97,8 @@ function searchNearImgUrl(data, dataSet, currentLine) {
 //////////////////////////////////////////////////////////âπê∫ÉÇÅ[ÉhïœçX
 function switchingSound() {
     if (game_status['sound_mode']) {
-        game_status['sound_mode'] = false;
         bgmStop(null);
-        
+        game_status['sound_mode'] = false;
     } else {
         game_status['sound_mode'] = true;
         var d_cmd = new Array("bgm", game_status['bgm']);
