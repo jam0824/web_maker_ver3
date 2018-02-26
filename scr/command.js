@@ -383,7 +383,6 @@ function bgmStart(d_cmd) {
             isAudioLoadStart = true;
         }
         else if(userAgent.indexOf('android') != -1){
-        	alert("tst");
             game.load(
                 game_status['bgm'], 
                 "AndroidBGM",
